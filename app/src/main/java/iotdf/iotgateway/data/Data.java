@@ -4,7 +4,7 @@ package iotdf.iotgateway.data;
  * Created by Administrator on 2016/7/3 0003.
  */
 public class Data {
-    private int id;
+    private int arduinoNum;
     private String humidity;
     private String water;
     private String brightness;
@@ -12,11 +12,11 @@ public class Data {
     private String time;
 
     public int getId() {
-        return id;
+        return arduinoNum;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int arduinoNum) {
+        this.arduinoNum = arduinoNum;
     }
 
     public String getHumidity() {

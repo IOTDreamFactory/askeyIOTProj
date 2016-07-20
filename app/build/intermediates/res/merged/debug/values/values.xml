@@ -240,10 +240,13 @@
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="app_name">IOTGateway</string>
+    <string name="arduinoNum">arduinoNum</string>
+    <string name="brightness">brightness</string>
     <string name="error_field_required">This field is required</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
+    <string name="humidity">humidity</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
@@ -252,8 +255,11 @@
     <string name="start_button">start</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="stop_button">stop</string>
+    <string name="temperature">temp</string>
     <string name="test">Test</string>
+    <string name="time">time</string>
     <string name="title_activity_login">Sign in</string>
+    <string name="water">water</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>

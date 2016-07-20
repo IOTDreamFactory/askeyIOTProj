@@ -29,4 +29,15 @@ public class UserService {
         sdb.execSQL(sql, obj);
         return true;
     }
+
+    public boolean registerCheck(String username){
+        SQLiteDatabase sdb=dbHelper.getReadableDatabase();
+        String sql="select * from user where username=?";
+        Cursor cursor=sdb.rawQuery(sql, new String[]{username});
+        if(cursor.moveToFirst()==true){
+            cursor.close();
+            return true;
+        }
+        return false;
+    }
 }

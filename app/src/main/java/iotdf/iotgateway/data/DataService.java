@@ -27,7 +27,7 @@ public class DataService {
         cursor.moveToFirst();  // 重中之重，千万不能忘了
         while(!cursor.isAfterLast()){
             item = new HashMap<String, Object>();
-            item.put("id", cursor.getString(0));
+            item.put("arduinoNum", cursor.getString(0));
             item.put("humidity", cursor.getString(1));
             item.put("water", cursor.getString(2));
             item.put("brightness", cursor.getString(3));
@@ -41,7 +41,7 @@ public class DataService {
     //插入信息
     public boolean InsertData(Data data){
         SQLiteDatabase sdb=dbHelper.getReadableDatabase();
-        String sql="insert into EnvData(id,humidity,water,brightness,temp,time) values(?,?,?,?,?,?)";
+        String sql="insert into EnvData(arduinoNum,humidity,water,brightness,temp,time) values(?,?,?,?,?,?)";
         Object obj[]={data.getId(),data.getHumidity(),data.getWater(),data.getBrightness(),data.getTemp(),data.getTime()};
         sdb.execSQL(sql,obj);
         return true;
@@ -54,7 +54,7 @@ public class DataService {
         Map<String, Object> item;
         cursor.moveToLast();
         item = new HashMap<String, Object>();
-        item.put("id", cursor.getString(0));
+        item.put("arduinoNum", cursor.getString(0));
         item.put("humidity", cursor.getString(1));
         item.put("water", cursor.getString(2));
         item.put("brightness", cursor.getString(3));
