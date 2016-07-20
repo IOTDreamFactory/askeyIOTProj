@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:2:1-23:12
+ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:2:1-30:12
 	package
 		ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:3:5-31
 		INJECTED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml
@@ -13,8 +13,12 @@ ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:
 	android:versionCode
 		INJECTED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml
 		INJECTED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:4:5-66
+	android:name
+		ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:4:22-64
 application
-ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:5:5-21:19
+ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:5:5-28:19
 MERGED from [com.android.support:appcompat-v7:24.0.0] E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:24.0.0] E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-vector-drawable:24.0.0] E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\AndroidManifest.xml:23:5-20
@@ -55,9 +59,21 @@ ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:
 	android:name
 		ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:19:19-41
 activity#iotdf.iotgateway.ChooseDevice
-ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:20:9-59
+ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:20:9-50
 	android:name
 		ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:20:19-47
+service#iotdf.iotgateway.ConServ.Myservice
+ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:22:9-25:39
+	android:enabled
+		ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:24:13-35
+	android:exported
+		ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:23:13-62
+activity#iotdf.iotgateway.ConServ.ConSetting
+ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:27:9-65
+	android:name
+		ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:27:19-53
 uses-sdk
 INJECTED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:24.0.0] E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\AndroidManifest.xml:21:5-23:78

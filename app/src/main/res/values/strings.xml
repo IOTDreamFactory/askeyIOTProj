@@ -7,9 +7,11 @@
     <string name="Login">Login</string>
     <string name="Regist">Regist</string>
     <string name="Submit">Submit</string>
+    <string name="Accept">Accept</string>
     <string name="Back">Back</string>
     <string name="title_activity_login">Sign in</string>
-
+    <string name="test">Test</string>
+    <string name="Setting">Setting</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>

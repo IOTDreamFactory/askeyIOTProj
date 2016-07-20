@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="iotdf.iotgateway">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,7 +17,14 @@
         </activity>
         <activity android:name=".DevicePanel" />
         <activity android:name=".Regist" />
-        <activity android:name=".ChooseDevice"></activity>
+        <activity android:name=".ChooseDevice" />
+
+        <service
+            android:name="iotdf.iotgateway.ConServ.Myservice"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".ConServ.ConSetting"></activity>
     </application>
 
 </manifest>

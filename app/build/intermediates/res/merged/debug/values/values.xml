@@ -28,9 +28,8 @@
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorGreenBG">#3cb879</color>
-    <color name="colorGreenDark">#005826</color>
-    <color name="colorGreenHint">#afddc3</color>
+    <color name="colorHintBlue">#92aed3</color>
+    <color name="colorNormalBlue">#5587c0</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
@@ -199,10 +198,12 @@
     <integer name="abc_config_activityShortDur">150</integer>
     <integer name="cancel_button_image_alpha">127</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
+    <string name="Accept">Accept</string>
     <string name="Back">Back</string>
     <string name="Login">Login</string>
     <string name="Pwd">Password</string>
     <string name="Regist">Regist</string>
+    <string name="Setting">Setting</string>
     <string name="Submit">Submit</string>
     <string name="UserName">UserName</string>
     <string name="abc_action_bar_home_description">Navigate home</string>
@@ -251,6 +252,7 @@
     <string name="start_button">start</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="stop_button">stop</string>
+    <string name="test">Test</string>
     <string name="title_activity_login">Sign in</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>

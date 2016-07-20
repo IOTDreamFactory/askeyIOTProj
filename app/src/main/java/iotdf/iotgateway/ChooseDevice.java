@@ -1,13 +1,16 @@
 package iotdf.iotgateway;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.DataSetObserver;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
@@ -15,18 +18,51 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import iotdf.iotgateway.ConServ.ConSetting;
+
 public class ChooseDevice extends Activity {
     private ExpandableListView listView;
+    private Button Button_Setting;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_device);
 
+        Button_Setting=(Button) findViewById(R.id.Button_Setting);
+
         listView = (ExpandableListView) findViewById(R.id.expandlist);
 
-        MyExpandableListAdapter adapter = new MyExpandableListAdapter();
+        final MyExpandableListAdapter adapter = new MyExpandableListAdapter();
         listView.setAdapter(adapter);
+        listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+                Intent intent = new Intent();
+                Bundle bundle=new Bundle();
+                ArrayList position=new ArrayList();
+                position.add(adapter.getGroup(groupPosition));
+                position.add(adapter.getChild(groupPosition,childPosition));
+                bundle.putParcelableArrayList("position",position);
+                intent.putExtras(bundle);
+                intent.setClass(ChooseDevice.this,DevicePanel.class);
+                startActivity(intent);
+                return true;
+            }
+        });
+        Button_Setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(ChooseDevice.this, ConSetting.class);
+                startActivity(intent);
+            }
+        });
     }
+
+
     public class MyExpandableListAdapter implements ExpandableListAdapter {
         int[] logos = new int[]{
                 R.drawable.icon,

@@ -8,6 +8,8 @@
         android:minSdkVersion="19"
         android:targetSdkVersion="24" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="com.android.tools.fd.runtime.BootstrapApplication"
         android:allowBackup="true"
@@ -25,6 +27,13 @@
         <activity android:name="iotdf.iotgateway.DevicePanel" />
         <activity android:name="iotdf.iotgateway.Regist" />
         <activity android:name="iotdf.iotgateway.ChooseDevice" />
+
+        <service
+            android:name="iotdf.iotgateway.ConServ.Myservice"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name="iotdf.iotgateway.ConServ.ConSetting" />
     </application>
 
 </manifest>

@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.administrator.iotgateway.MainActivity"
+    tools:context="iotdf.iotgateway.MainActivity"
     android:background="@drawable/login_bg">
 
     <Button
@@ -72,11 +72,11 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/LoginUser"
-        android:layout_marginTop="298dp"
+        android:layout_marginTop="295dp"
         android:layout_marginLeft="90dp"
-        android:textColor="@color/colorGreenBG"
+        android:textColor="@color/colorNormalBlue"
         android:hint="UserName"
-        android:textColorHint="@color/colorGreenHint"
+        android:textColorHint="@color/colorHintBlue"
         android:background="@null"
         android:enabled="true"
         android:editable="true"
@@ -90,8 +90,8 @@
         android:id="@+id/LoginPassword"
         android:layout_marginTop="60dp"
         android:background="@null"
-        android:textColor="@color/colorGreenBG"
-        android:textColorHint="@color/colorGreenHint"
+        android:textColor="@color/colorNormalBlue"
+        android:textColorHint="@color/colorHintBlue"
         android:password="true"
         android:hint="Password"
         android:layout_alignTop="@+id/LoginUser"
@@ -107,7 +107,7 @@
         android:layout_below="@+id/button_login"
         android:layout_alignLeft="@+id/button_login"
         android:layout_alignStart="@+id/button_login"
-        android:textColor="@color/colorGreenDark"
+        android:textColor="@color/colorNormalBlue"
         android:textSize="8dp"
         android:background="@null" />
 
@@ -116,7 +116,7 @@
         android:layout_height="wrap_content"
         android:text="Need to sign up?"
         android:id="@+id/button_sign"
-        android:textColor="@color/colorGreenDark"
+        android:textColor="@color/colorNormalBlue"
         android:textSize="8dp"
         android:background="@null"
         android:layout_below="@+id/button_login"
