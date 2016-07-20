@@ -21,16 +21,19 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import iotdf.iotgateway.ConServ.ConSetting;
+import iotdf.iotgateway.data.DataTest;
 
-public class ChooseDevice extends Activity {
+public class ChooseDevice extends Activity implements View.OnClickListener {
     private ExpandableListView listView;
     private Button Button_Setting;
+    private Button Button_Test;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_device);
 
         Button_Setting=(Button) findViewById(R.id.Button_Setting);
+        Button_Test=(Button)findViewById(R.id.Button_test);
 
         listView = (ExpandableListView) findViewById(R.id.expandlist);
 
@@ -53,13 +56,24 @@ public class ChooseDevice extends Activity {
                 return true;
             }
         });
-        Button_Setting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(ChooseDevice.this, ConSetting.class);
+        Button_Setting.setOnClickListener(this);
+        Button_Test.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId())
+        {
+            case R.id.Button_Setting:
+                Intent intent=new Intent(ChooseDevice.this,ConSetting.class);
                 startActivity(intent);
-            }
-        });
+                break;
+            case R.id.Button_test:
+                Intent intent1=new Intent(ChooseDevice.this, DataTest.class);
+                startActivity(intent1);
+                break;
+        }
     }
 
 
