@@ -140,6 +140,10 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\sign_bg.png"
     },
     {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tab_lable.xml",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\tab_lable.xml"
+    },
+    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_cab_background_top_material.xml"
     },
