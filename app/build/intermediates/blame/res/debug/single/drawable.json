@@ -20,16 +20,16 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\ico_humi.png"
     },
     {
-        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
-        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_item_background_holo_light.xml"
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\parent_close.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\parent_close.png"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\login_pass.png",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\login_pass.png"
     },
     {
-        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\parent_close.png",
-        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\parent_close.png"
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_item_background_holo_light.xml"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background.xml",
@@ -116,12 +116,12 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_ic_clear_material.xml"
     },
     {
-        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
-        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_ratingbar_material.xml"
-    },
-    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ico_water.png",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\ico_water.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_ratingbar_material.xml"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",

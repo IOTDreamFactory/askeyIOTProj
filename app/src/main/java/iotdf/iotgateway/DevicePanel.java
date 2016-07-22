@@ -83,7 +83,11 @@ public class DevicePanel extends FragmentActivity implements TabHost.OnTabChange
             mTabHost.addTab(mTabHost.newTabSpec(title[i]).setIndicator(button)
                     .setContent(tabIds[i]));
         }
-
+        Fragment frag = new Chart();
+        FragmentManager manager = this.getSupportFragmentManager();
+        FragmentTransaction trans = manager.beginTransaction();
+        trans.add(R.id.tab1, frag, "图表");
+        trans.commit();
         mTabHost.setOnTabChangedListener(this);
     }
 }
