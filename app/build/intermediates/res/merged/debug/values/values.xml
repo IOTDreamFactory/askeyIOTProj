@@ -28,10 +28,14 @@
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorDreiBlue">#3e5a98</color>
     <color name="colorHintBlue">#92aed3</color>
+    <color name="colorNodeGrey">#3c3c3c</color>
     <color name="colorNormalBlue">#5587c0</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorZweiBlue">#375069</color>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
