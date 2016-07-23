@@ -24,16 +24,20 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import iotdf.iotgateway.ConServ.ConSetting;
+import iotdf.iotgateway.data.DataService;
+import iotdf.iotgateway.data.DataTest;
 
 public class ChooseDevice extends Activity {
     private ExpandableListView listView;
     private Button Button_Setting;
+    private Button Button_Test;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_device);
 
         Button_Setting=(Button) findViewById(R.id.Button_Setting);
+        Button_Test=(Button)findViewById(R.id.Button_Test) ;
 
         listView = (ExpandableListView) findViewById(R.id.expandlist);
         //listView.setGroupIndicator(this.getResources().getDrawable(R.drawable.expand_list_indicator));
@@ -64,6 +68,13 @@ public class ChooseDevice extends Activity {
                 startActivity(intent);
             }
         });
+        Button_Test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(ChooseDevice.this, DataTest.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -77,9 +88,14 @@ public class ChooseDevice extends Activity {
                 R.drawable.icon,
                 R.drawable.icon
         };
+
+
+/*
         private String[] armTypes = new String[]{
                 "节点1", "节点2", "节点3", "节点4", "节点5", "节点6", "节点7"
         };
+*/
+
         private String[][] arms = new String[][]{
                 {"温度传感器", "湿度传感器", "水份传感器", "光照传感器"},
                 {"温度传感器", "湿度传感器", "水份传感器", "光照传感器"},
@@ -89,6 +105,9 @@ public class ChooseDevice extends Activity {
                 {"温度传感器", "湿度传感器", "水份传感器", "光照传感器"},
                 {"温度传感器", "湿度传感器", "水份传感器", "光照传感器"},
         };
+
+        DataService mDataService=new DataService(ChooseDevice.this);
+        private String[] armTypes=(String[])mDataService.PointNum().toArray(new String[mDataService.PointNum().size()]);
 
 
         @Override

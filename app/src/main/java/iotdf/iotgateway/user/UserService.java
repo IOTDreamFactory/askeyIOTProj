@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import iotdf.iotgateway.data.DatabaseHelper;
+
 public class UserService {
     private DatabaseHelper dbHelper;
     private Context context;
@@ -25,7 +27,7 @@ public class UserService {
     public boolean register(User user){
         SQLiteDatabase sdb=dbHelper.getReadableDatabase();
         String sql="insert into user(username,password) values(?,?)";
-        Object obj[]={user.getUsername(),user.getUsername()};
+        Object obj[]={user.getUsername(),user.getPassword()};
         sdb.execSQL(sql, obj);
         return true;
     }

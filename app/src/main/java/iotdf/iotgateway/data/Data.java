@@ -4,18 +4,18 @@ package iotdf.iotgateway.data;
  * Created by Administrator on 2016/7/3 0003.
  */
 public class Data {
-    private int arduinoNum;
+    private String arduinoNum;
     private String humidity;
     private String water;
     private String brightness;
     private String temp;
-    private String time;
+    private long time;
 
-    public int getId() {
+    public String getId() {
         return arduinoNum;
     }
 
-    public void setId(int arduinoNum) {
+    public void setId(String arduinoNum) {
         this.arduinoNum = arduinoNum;
     }
 
@@ -51,11 +51,11 @@ public class Data {
         this.temp = temp;
     }
 
-    public String getTime() {
+    public long getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(long time) {
         this.time = time;
     }
 }

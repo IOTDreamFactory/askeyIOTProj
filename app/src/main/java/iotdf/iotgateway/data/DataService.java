@@ -62,4 +62,31 @@ public class DataService {
         item.put("time", cursor.getString(5));
         return item;
     }
+
+    public ArrayList PointNum(){//节点数
+        SQLiteDatabase sdb=dbHelper.getReadableDatabase();
+        String sql="select distinct arduinoNum from EnvData";
+        Cursor cursor =sdb.rawQuery(sql,null);
+        ArrayList<String> Num=new ArrayList<String>();
+        cursor.moveToFirst();  // 重中之重，千万不能忘了
+        while(!cursor.isAfterLast()){
+            Num.add(cursor.getString(0)+"");
+            cursor.moveToNext();
+        }
+        return Num;
+    }
+/*    public int pointNum(String[] arduinoNum){//图表点数
+        int Num=0;
+        SQLiteDatabase sdb=dbHelper.getReadableDatabase();
+        String sql="select count(arduinoNum) from EnvData where arduinoNum=(arduinoNum) values(?)";
+        Cursor cursor =sdb.rawQuery(sql,arduinoNum);
+
+        cursor.moveToFirst();  // 重中之重，千万不能忘了
+        while(!cursor.isAfterLast()){
+            Num=cursor.getInt(0);
+            cursor.moveToNext();
+        }
+
+        return Num;
+    }*/
 }

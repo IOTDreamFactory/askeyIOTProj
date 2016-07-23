@@ -20,6 +20,8 @@ public class DataTest extends AppCompatActivity implements View.OnClickListener 
     private EditText ET_brightness;
     private Button Button_accept;
     private Button Button_back;
+    private Button Button_auto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,8 @@ public class DataTest extends AppCompatActivity implements View.OnClickListener 
         ET_brightness=(EditText)findViewById(R.id.ET_Brightness);
         Button_accept=(Button) findViewById(R.id.button_accept);
         Button_back=(Button)findViewById(R.id.button_back);
+        Button_auto=(Button)findViewById(R.id.button_auto);
+
         ET_arduinoNum.setOnClickListener(this);
         ET_time.setOnClickListener(this);
         ET_temp.setOnClickListener(this);
@@ -40,6 +44,7 @@ public class DataTest extends AppCompatActivity implements View.OnClickListener 
         ET_brightness.setOnClickListener(this);
         Button_accept.setOnClickListener(this);
         Button_back.setOnClickListener(this);
+        Button_auto.setOnClickListener(this);
     }
 
     @Override
@@ -56,15 +61,35 @@ public class DataTest extends AppCompatActivity implements View.OnClickListener 
                 Data data=new Data();
                 data.setBrightness(ET_brightness.getText().toString());
                 data.setHumidity(ET_humidity.getText().toString());
-                data.setId(Integer.parseInt(ET_arduinoNum.getText().toString()));
+                data.setId(ET_arduinoNum.getText().toString());
                 data.setTemp(ET_time.getText().toString());
-                data.setTime(ET_time.getText().toString());
+                data.setTime(Integer.parseInt(ET_time.getText().toString()));
                 data.setWater(ET_water.getText().toString());
                 mDataService.InsertData(data);
                 Toast.makeText(DataTest.this,"输入数据成功",Toast.LENGTH_SHORT).show();
             case R.id.button_back:
                 Intent intent=new Intent(DataTest.this, ChooseDevice.class);
                 startActivity(intent);
+                break;
+            case R.id.button_auto:
+                DataService mDataService1=new DataService(DataTest.this);
+                Data data1=new Data();
+                java.util.Date date = new java.util.Date();
+                long datetime = date.getTime();
+                for (int j=1;j<=5;j++)
+                {
+                    for(int i=0;i<12;i++)
+                    {
+
+                        data1.setBrightness((float) Math.random() * 100f+"");
+                        data1.setHumidity((float) Math.random() * 100f+"");
+                        data1.setId("传感器"+j);
+                        data1.setTemp((float) Math.random() * 100f+"");
+                        data1.setTime(datetime+i);
+                        data1.setWater((float) Math.random() * 100f+"");
+                        mDataService1.InsertData(data1);
+                    }
+                }
                 break;
         }
     }

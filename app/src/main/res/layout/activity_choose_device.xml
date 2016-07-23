@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorNodeGrey">
     <ExpandableListView android:id="@+id/expandlist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,6 +21,13 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Button_Test"
+        android:text="@string/test"
+        android:layout_alignBottom="@+id/nodeConect"
+        android:layout_alignParentEnd="true" />
     <ImageView
         android:layout_width="720dp"
         android:layout_height="200dp"

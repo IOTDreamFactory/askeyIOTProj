@@ -83,7 +83,8 @@ public class Regist extends AppCompatActivity {
             else if(temp.length()==0)
                 Toast.makeText(getApplicationContext(), "不能为空！！", Toast.LENGTH_SHORT).show();
             else if (mService.registerCheck(s.toString()))
-                Toast.makeText(getApplicationContext(),"该用户名不可用",Toast.LENGTH_SHORT).show();
+            {Toast.makeText(getApplicationContext(),"该用户名不可用",Toast.LENGTH_SHORT).show();
+                flag=0;}
             else flag=1;
         }
     };
