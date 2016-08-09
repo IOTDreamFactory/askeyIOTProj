@@ -3,6 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorNodeGrey">
+    <com.andview.refreshview.XRefreshView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:xrefreshview="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/custom_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorNodeGrey"
+        xrefreshview:autoRefresh="true" >
     <ExpandableListView android:id="@+id/expandlist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,7 +20,9 @@
         android:childIndicator="@null"
         android:divider="@null"
         android:groupIndicator="@drawable/expand_list_indicator"
-        android:indicatorLeft="300dp"></ExpandableListView>a
+        android:indicatorLeft="300dp">
+    </ExpandableListView>
+    </com.andview.refreshview.XRefreshView>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

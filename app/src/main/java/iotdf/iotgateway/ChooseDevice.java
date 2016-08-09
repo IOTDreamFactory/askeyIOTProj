@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.DataSetObserver;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,8 @@ import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.andview.refreshview.XRefreshView;
+
 import java.util.ArrayList;
 
 import iotdf.iotgateway.ConServ.ConSetting;
@@ -25,11 +28,13 @@ import iotdf.iotgateway.data.DataTest;
 
 public class ChooseDevice extends Activity {
     private ExpandableListView listView;
+    private XRefreshView xRefreshView;
     private Button Button_Setting;
     private Button Button_Test;
     private TextView User;
     private String Username;
     private String Connect="Connection:";
+    public static long lastRefreshTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +48,39 @@ public class ChooseDevice extends Activity {
         //Intent intent1 = this.getIntent();
         //System.out.println(intent1.getStringExtra("Username"));
         //User.setText(intent1.getStringExtra("Username"));
+        xRefreshView=(XRefreshView)findViewById(R.id.custom_view);
+        xRefreshView.setAutoRefresh(false);
+        xRefreshView.restoreLastRefreshTime(lastRefreshTime);
+        xRefreshView.setXRefreshViewListener(new XRefreshView.XRefreshViewListener() {
+
+            @Override
+            public void onRefresh() {
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        xRefreshView.stopRefresh();
+                        lastRefreshTime = xRefreshView.getLastRefreshTime();
+                    }
+                }, 1000);
+            }
+
+            @Override
+            public void onLoadMore(boolean isSilence) {
+
+            }
+
+            @Override
+            public void onRelease(float direction) {
+
+            }
+
+            @Override
+            public void onHeaderMove(double offset, int offsetY) {
+
+            }
+        });
+
         listView = (ExpandableListView) findViewById(R.id.expandlist);
         //listView.setGroupIndicator(this.getResources().getDrawable(R.drawable.expand_list_indicator));
         final MyExpandableListAdapter adapter = new MyExpandableListAdapter();
@@ -87,6 +125,7 @@ public class ChooseDevice extends Activity {
                 startActivity(intent);
             }
         });
+
     }
 
     @Override
