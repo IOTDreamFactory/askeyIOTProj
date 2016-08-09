@@ -1,24 +1,21 @@
 package iotdf.iotgateway.DeviceFragments;
 
-import android.content.Context;
-import android.net.Uri;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import iotdf.iotgateway.R;
+import iotdf.iotgateway.data.DataService;
 import lecho.lib.hellocharts.animation.ChartAnimationListener;
-import lecho.lib.hellocharts.gesture.ZoomType;
 import lecho.lib.hellocharts.listener.LineChartOnValueSelectListener;
 import lecho.lib.hellocharts.model.Axis;
 import lecho.lib.hellocharts.model.Line;
@@ -35,10 +32,10 @@ public class Chart extends Fragment {
     private LineChartView chart;
     private LineChartData data;
     private int numberOfLines = 1;
-    private int maxNumberOfLines = 4;
-    private int numberOfPoints = 12;
+    private int maxNumberOfLines = 1;
+    private int numberOfPoints = 0;
 
-    float[][] randomNumbersTab = new float[maxNumberOfLines][numberOfPoints];
+    float[][] randomNumbersTab ;
 
     private boolean hasAxes = true;
     private boolean hasAxesNames = true;
@@ -51,35 +48,89 @@ public class Chart extends Fragment {
     private boolean hasLabelForSelected = false;
     private boolean pointsHaveDifferentColor;
 
+    private final static String TAG="Test";
+
+    private String postion;
+    private String[] postionInfo;
+    private String arduinoNum;
+    private String sensor;
+    private TextView tv_Position;
+    private float[] NumbersTab;
+    private final int COLOR_WHITE = Color.parseColor("#FFFFFF");
+    private View rootView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        View rootView = inflater.inflate(R.layout.fragment_chart, container, false);
-
+        if(rootView==null)
+        rootView = inflater.inflate(R.layout.fragment_chart, container, false);
         chart = (LineChartView) rootView.findViewById(R.id.chart);
         chart.setOnValueTouchListener(new ValueTouchListener());
+        Bundle bundle = getArguments();//从activity传过来的Bundle
+        if(bundle!=null){
+            tv_Position=(TextView) rootView.findViewById(R.id.tv_position) ;
 
+            postion=bundle.getString("Position");
+            checkPosition(postion);
+            tv_Position.setText(arduinoNum);
+        }
         // Generate some random values.
+        getPointNum();
+        initChartValue();
         generateValues();
-
         generateData();
-
         // Disable viewport recalculations, see toggleCubic() method for more info.
         chart.setViewportCalculationEnabled(false);
-
         resetViewport();
-
         return rootView;
     }
 
+    @Override
+    public void onDestroyView(){
+        super.onDestroyView();
+        ((ViewGroup)rootView.getParent()).removeView(rootView);
+    }
     // MENU
+    private void getPointNum(){
+        DataService mDataService=new DataService(getActivity());
+        numberOfPoints=mDataService.pointNum(sensor,arduinoNum);
+        randomNumbersTab = new float[maxNumberOfLines][numberOfPoints];
+        NumbersTab=new float[numberOfPoints];
+    }
 
     private void generateValues() {
         for (int i = 0; i < maxNumberOfLines; ++i) {
             for (int j = 0; j < numberOfPoints; ++j) {
-                randomNumbersTab[i][j] = (float) Math.random() * 100f;
+                /*randomNumbersTab[i][j] = (float) Math.random() * 100f;*/
+                randomNumbersTab[i][j]=NumbersTab[j];
             }
+        }
+    }
+
+    private void checkPosition(String postion){
+        if(postion.contains("温度"))
+            sensor = "temp";
+        else if(postion.contains("水份"))
+            sensor="water";
+        else if(postion.contains("光照"))
+            sensor="brightness";
+        else if (postion.contains("湿度"))
+            sensor="humidity";
+        else
+            sensor=null;
+        postionInfo=postion.split(",");
+        arduinoNum=postionInfo[1];
+    }
+
+
+    private void initChartValue(){
+        DataService mDataService=new DataService(getActivity());
+        Log.d(TAG, "onCreateView: "+numberOfPoints);
+        String[] NumbersTabStr=(String[])mDataService.initNumberTabs(sensor,arduinoNum).toArray(new String[numberOfPoints]);
+        System.out.println("NumberofPoints:"+numberOfPoints);
+        for (int i=0;i<numberOfPoints;i++)
+        {NumbersTab[i]=Float.parseFloat(NumbersTabStr[i]);
+        System.out.println("NumbersTab:"+NumbersTab[i]);
         }
     }
 
@@ -95,7 +146,7 @@ public class Chart extends Fragment {
         hasLabels = false;
         isCubic = false;
         hasLabelForSelected = false;
-        pointsHaveDifferentColor = false;
+        pointsHaveDifferentColor = true;
 
         chart.setValueSelectionEnabled(hasLabelForSelected);
         resetViewport();
@@ -105,7 +156,10 @@ public class Chart extends Fragment {
         // Reset viewport height range to (0,100)
         final Viewport v = new Viewport(chart.getMaximumViewport());
         v.bottom = 0;
-        v.top = 100;
+        if(postion.contains("光照"))
+        v.top = 5000;
+        else
+        v.top=100;
         v.left = 0;
         v.right = numberOfPoints - 1;
         chart.setMaximumViewport(v);
@@ -123,7 +177,8 @@ public class Chart extends Fragment {
             }
 
             Line line = new Line(values);
-            line.setColor(ChartUtils.COLORS[i]);
+            //line.setColor(ChartUtils.COLORS[i]);
+            line.setColor(COLOR_WHITE);
             line.setShape(shape);
             line.setCubic(isCubic);
             line.setFilled(isFilled);
@@ -131,8 +186,10 @@ public class Chart extends Fragment {
             line.setHasLabelsOnlyForSelected(hasLabelForSelected);
             line.setHasLines(hasLines);
             line.setHasPoints(hasPoints);
+            line.setPointColor(ChartUtils.COLORS[i]);
             if (pointsHaveDifferentColor){
-                line.setPointColor(ChartUtils.COLORS[(i + 1) % ChartUtils.COLORS.length]);
+                //line.setPointColor(ChartUtils.COLORS[(i + 1) % ChartUtils.COLORS.length]);
+                line.setPointColor(COLOR_WHITE);
             }
             lines.add(line);
         }
@@ -143,8 +200,8 @@ public class Chart extends Fragment {
             Axis axisX = new Axis();
             Axis axisY = new Axis().setHasLines(true);
             if (hasAxesNames) {
-                axisX.setName("Axis X");
-                axisY.setName("Axis Y");
+                /*axisX.setName("Axis X");
+                axisY.setName("Axis Y");*/
             }
             data.setAxisXBottom(axisX);
             data.setAxisYLeft(axisY);
@@ -278,6 +335,8 @@ public class Chart extends Fragment {
         generateData();
     }
 
+
+
     private void toggleLabelForSelected() {
         hasLabelForSelected = !hasLabelForSelected;
 
@@ -330,5 +389,7 @@ public class Chart extends Fragment {
         }
 
     }
+
+
 }
 

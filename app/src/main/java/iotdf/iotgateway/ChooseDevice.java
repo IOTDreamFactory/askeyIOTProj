@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.DataSetObserver;
 import android.graphics.Color;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -17,8 +15,6 @@ import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -31,14 +27,22 @@ public class ChooseDevice extends Activity {
     private ExpandableListView listView;
     private Button Button_Setting;
     private Button Button_Test;
+    private TextView User;
+    private String Username;
+    private String Connect="Connection:";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_device);
-
+        updateText();
         Button_Setting=(Button) findViewById(R.id.Button_Setting);
         Button_Test=(Button)findViewById(R.id.Button_Test) ;
-
+        User=(TextView)findViewById(R.id.nodeUser);
+        Bundle bundle1 = this.getIntent().getExtras();
+        User.setText(bundle1.getString("Username"));
+        //Intent intent1 = this.getIntent();
+        //System.out.println(intent1.getStringExtra("Username"));
+        //User.setText(intent1.getStringExtra("Username"));
         listView = (ExpandableListView) findViewById(R.id.expandlist);
         //listView.setGroupIndicator(this.getResources().getDrawable(R.drawable.expand_list_indicator));
         final MyExpandableListAdapter adapter = new MyExpandableListAdapter();
@@ -54,6 +58,14 @@ public class ChooseDevice extends Activity {
                 ArrayList position=new ArrayList();
                 position.add(adapter.getGroup(groupPosition));
                 position.add(adapter.getChild(groupPosition,childPosition));
+
+                /*
+                System.out.println(adapter.getGroup(groupPosition));
+                System.out.println(adapter.getChild(groupPosition,childPosition));
+
+                System.out.println(position.get(0));
+                System.out.println(position.get(1));
+                */
                 bundle.putParcelableArrayList("position",position);
                 intent.putExtras(bundle);
                 intent.setClass(ChooseDevice.this,DevicePanel.class);
@@ -75,6 +87,25 @@ public class ChooseDevice extends Activity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        onCreate(null);
+    }
+
+    private void updateText(){
+        /*
+        Username=getUser();
+        Connect+="Normal";
+         */
+        Username="Username";
+        Connect="Normal";
+        TextView v1 = (TextView)findViewById(R.id.nodeUser);
+        v1.setText(Username);
+        TextView v2 = (TextView)findViewById(R.id.nodeConnect);
+        v2.setText(Connect);
     }
 
 
@@ -256,5 +287,7 @@ public class ChooseDevice extends Activity {
             //textView.setTextSize(40);
             return textView;
         }
+
+
     }
 }

@@ -1,3 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.0.0_cd373efee09ffca4b80ef14205b46bba0b0637c9.jar" />
+    </item>
+    <item
+        jar="E:\AndroidStudioProjects\IOTGateway\app\libs\mqtt-client-0.4.0.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="70efcaca7d1c70ad5dc716a124f2861f07fe27bf">
+        <dex dex="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\pre-dexed\debug\mqtt-client-0.4.0_144772bd5612c47505b930ec34acc6e99f10ce71.jar" />
+    </item>
+    <item
+        jar="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.0.0_a3a3ccba33cdb9f728cc880c56df63e3bbaab9c8.jar" />
+    </item>
+    <item
+        jar="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.0.0_7ea9844350e56d705652e1a732790e6fe1540630.jar" />
+    </item>
+    <item
+        jar="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="b3e0e36f4297df30b0f0725fe6135f4bd94278e9">
+        <dex dex="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_5c1b9f62cc1794e30b0bcb607b86d9f3c75a9a88.jar" />
+    </item>
+    <item
+        jar="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\pre-dexed\debug\internal_impl-24.0.0_3324512e93e8f8e06de83301d77d6db36fa72ea5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\24.0.0\2943c74db6d4346ab8c6531adac91fa05c137c40\support-annotations-24.0.0.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\pre-dexed\debug\support-annotations-24.0.0_170a33ba025e7388493b8e76c041cf4d64a29a8a.jar" />
+    </item>
+    <item
+        jar="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="dd401cb373108903c1af981b3c8dd78ffedc2965">
+        <dex dex="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\pre-dexed\debug\instant-run_6f04ec8e2ec55824f9b0ad926e7fdc3ad0af5423.jar" />
+    </item>
+    <item
+        jar="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
+        <dex dex="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.0.0_51a7eb64269147dbd45f20f2dc39f866ce0d10c7.jar" />
+    </item>
+    <item
+        jar="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\exploded-aar\com.github.lecho\hellocharts-library\1.5.8\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="56c6a22c42588628903e9dda5d8f3aa1c1b4372f">
+        <dex dex="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\pre-dexed\debug\com.github.lecho-hellocharts-library-1.5.8_c25e1ee48333feafb2ad2a2c2e6594676e237f4c.jar" />
+    </item>
+
+</items>

@@ -78,7 +78,7 @@ public class DataTest extends AppCompatActivity implements View.OnClickListener 
                 long datetime = date.getTime();
                 for (int j=1;j<=5;j++)
                 {
-                    for(int i=0;i<12;i++)
+                    for(int i=0;i<13;i++)
                     {
 
                         data1.setBrightness((float) Math.random() * 100f+"");

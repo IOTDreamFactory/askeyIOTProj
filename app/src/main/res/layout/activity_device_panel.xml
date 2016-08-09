@@ -1,32 +1,110 @@
-<TabHost android:id="@+id/tabhost"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:layout_width="fill_parent"
-        android:id="@+id/linearLayout1"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <ImageView
+        android:layout_width="720dp"
+        android:layout_height="200dp"
+        android:id="@+id/senorBG"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/top_sun" />
+    <TextClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/senorTime"
+        android:textSize="35dp"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="100dp"
+        android:format24Hour="HH:mm"
+        android:format12Hour="hh:mm"
+        android:autoText="false"
+        android:textStyle="bold"
+        android:textIsSelectable="false"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/NodeID"
+        android:textColor="@android:color/white"
+        android:text="NodeID:XX"
+        android:layout_marginTop="35dp"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:background="@null"
+        android:layout_marginLeft="10dp"
+        android:textIsSelectable="false"
+        android:editable="false"
+        android:focusable="false" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unknown"
+        android:id="@+id/senorType"
+        android:background="@null"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:textSize="17dp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textIsSelectable="false"
+        android:focusable="false"
+        android:editable="false" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/senorConnect"
+        android:background="@null"
+        android:textSize="20dp"
+        android:text="Connection:Normal"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="65dp"
+        android:textIsSelectable="false"
+        android:editable="false"
+        android:focusable="false" />
+
+    <TabHost android:id="@+id/tabhost"
+        android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical">
-        <TabWidget android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:tag="tabs"
-            android:id="@android:id/tabs"></TabWidget>
-        <FrameLayout
-            android:layout_weight="1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@android:id/tabcontent">
-            <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/tab1"></FrameLayout>
-            <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/tab2"></FrameLayout>
-            <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/tab3"></FrameLayout>
-        </FrameLayout>
-    </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/first_page_info"
-        android:text="@string/test"/>
-</TabHost>
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:paddingTop="200dp">
+        <LinearLayout android:layout_width="fill_parent"
+            android:id="@+id/linearLayout1"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <TabWidget android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:tag="tabs"
+                android:id="@android:id/tabs"></TabWidget>
+
+            <FrameLayout
+                android:layout_weight="1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@android:id/tabcontent"
+                android:background="#375069">
+                <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/tab1"></FrameLayout>
+                <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/tab2"></FrameLayout>
+                <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/tab3"></FrameLayout>
+            </FrameLayout>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/first_page_info"
+            android:text="@string/test"
+            android:textColor="@color/colorWhite"
+            android:visibility="invisible" />
+    </TabHost>
+
+</RelativeLayout>
 
 
 

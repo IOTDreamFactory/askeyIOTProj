@@ -6,14 +6,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import iotdf.iotgateway.user.*;
+import iotdf.iotgateway.user.User;
+import iotdf.iotgateway.user.UserService;
 
 public class Regist extends AppCompatActivity {
     private EditText UserName;
@@ -49,11 +49,13 @@ public class Regist extends AppCompatActivity {
                     uService.register(user);
                     Intent=new Intent(Regist.this,MainActivity.class);
                     startActivity(Intent);
+                    finish();
                     Toast.makeText(Regist.this,"注册成功!", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.sign_back:
                     Intent=new Intent(Regist.this,MainActivity.class);
                     startActivity(Intent);
+                    finish();
                     break;
             }
         }

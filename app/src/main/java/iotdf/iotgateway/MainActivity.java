@@ -2,15 +2,15 @@ package iotdf.iotgateway;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import iotdf.iotgateway.user.*;
+
+import iotdf.iotgateway.ConSens.LocalService;
+import iotdf.iotgateway.user.UserService;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -46,6 +46,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         PWD=(EditText)findViewById(R.id.LoginPassword);
         Login.setOnClickListener(this);
         Regist.setOnClickListener(this);
+        Intent intent1=new Intent(MainActivity.this, LocalService.class);
+        startService(intent1);
     }
 
     @Override
@@ -73,8 +75,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     System.out.println("你点击了按钮");
                     //创建Intent对象，传入源Activity和目的Activity的类对象
                     Intent = new Intent(MainActivity.this, ChooseDevice.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("Username",UserName.getText().toString());
+                    Intent.putExtras(bundle);
+                    //Intent.putExtra("Username",UserName.getText());
                     //启动Activity
+                    System.out.println(UserName.getText());
                     startActivity(Intent);
+                    finish();
                 }else{
                     //登录信息错误，通过Toast显示提示信息
                     Toast.makeText(MainActivity.this,"用户登录信息错误" , Toast.LENGTH_SHORT).show();}

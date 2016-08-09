@@ -36,6 +36,7 @@ public class DataService {
             coll.add(item);
             cursor.moveToNext();
         }
+        cursor.close();
         return coll;
     }
     //插入信息
@@ -47,20 +48,24 @@ public class DataService {
         return true;
     }
     //输出最近的信息
-    public Map LatestData(){
+    public ArrayList HistoryData(String sensor,String arduinoNum){
         SQLiteDatabase sdb=dbHelper.getReadableDatabase();
-        String sql="select * from EnvData";
+        String sql="select arduinoNum,"+sensor+",time from EnvData where arduinoNum='"+arduinoNum+"'and "+sensor+" is not null";
         Cursor cursor =sdb.rawQuery(sql,null);
+        ArrayList<Map> HistoryData=new ArrayList<Map>();
         Map<String, Object> item;
-        cursor.moveToLast();
-        item = new HashMap<String, Object>();
-        item.put("arduinoNum", cursor.getString(0));
-        item.put("humidity", cursor.getString(1));
-        item.put("water", cursor.getString(2));
-        item.put("brightness", cursor.getString(3));
-        item.put("temp", cursor.getString(4));
-        item.put("time", cursor.getString(5));
-        return item;
+        cursor.moveToFirst();
+       while (!cursor.isAfterLast()) {
+           item = new HashMap<String, Object>();
+           item.put("arduinoNum",cursor.getString(cursor.getColumnIndex("arduinoNum")));
+           item.put(sensor,cursor.getString(cursor.getColumnIndex(sensor)));
+           item.put("time", cursor.getString(cursor.getColumnIndex("time")));
+           System.out.println("Data:"+cursor.getColumnIndex(arduinoNum)+cursor.getColumnIndex(sensor)+cursor.getColumnIndex("time"));
+           HistoryData.add(item);
+           cursor.moveToNext();
+       }
+        cursor.close();
+        return HistoryData;
     }
 
     public ArrayList PointNum(){//节点数
@@ -73,20 +78,34 @@ public class DataService {
             Num.add(cursor.getString(0)+"");
             cursor.moveToNext();
         }
+        cursor.close();
         return Num;
     }
-/*    public int pointNum(String[] arduinoNum){//图表点数
+
+    public ArrayList initNumberTabs(String sensor,String arduinoNum){
+        SQLiteDatabase sdb=dbHelper.getReadableDatabase();
+        String sql="select "+sensor+" from EnvData where arduinoNum='"+arduinoNum+"'and "+sensor+" is not null";
+        Cursor cursor =sdb.rawQuery(sql,null);
+        ArrayList<String> NumbersTab=new ArrayList<String>();
+        cursor.moveToFirst();  // 重中之重，千万不能忘了
+        while(!cursor.isAfterLast()){
+            NumbersTab.add(cursor.getString(0)+"");
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return NumbersTab;
+    }
+    public int pointNum(String sensor,String arduinoNum){//图表点数
         int Num=0;
         SQLiteDatabase sdb=dbHelper.getReadableDatabase();
-        String sql="select count(arduinoNum) from EnvData where arduinoNum=(arduinoNum) values(?)";
-        Cursor cursor =sdb.rawQuery(sql,arduinoNum);
-
+        String sql="select count("+sensor+") from EnvData where arduinoNum='"+arduinoNum+"'";
+        Cursor cursor =sdb.rawQuery(sql,null);
         cursor.moveToFirst();  // 重中之重，千万不能忘了
         while(!cursor.isAfterLast()){
             Num=cursor.getInt(0);
             cursor.moveToNext();
         }
-
+        cursor.close();
         return Num;
-    }*/
+    }
 }
