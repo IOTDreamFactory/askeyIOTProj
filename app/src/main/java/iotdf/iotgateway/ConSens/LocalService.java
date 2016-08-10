@@ -112,12 +112,6 @@ public class LocalService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.i("LocalService", "Received start id " + startId + ": " + intent);
-        // send=intent.getStringExtra("send");
-        //mNM = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-        // Display a notification about us starting.  We put an icon in the status bar.
-        //showNotification();
-        //ServerSocket_thread serversocket_thread = new ServerSocket_thread();
-        //serversocket_thread.start();
         return START_NOT_STICKY;
     }
     @Override
@@ -143,7 +137,6 @@ public class LocalService extends Service {
             System.out.print(send+"\n");
             try
             {
-                /*int port =Integer.valueOf(portEditText.getText().toString());//获取portEditText中的端口号*/
                 serverSocket = new ServerSocket(12345);//监听port端口，这个程序的通信端口就是port了
             }
             catch (IOException e)
@@ -202,23 +195,11 @@ public class LocalService extends Service {
             {
                 try
                 {
-					/*int count=inputstream.available();*/
                     final byte[] buf = new byte[4];
-					/*final int len = inputstream.read(buf);*/
                     inputstream.read(buf);
                     System.out.println(buf);
                     System.out.print("\n");
-
-/*                    runOnUiThread(new Runnable()
-                    {
-                        public void run()
-                        {
-							*//*receiveEditText.setText(new String(buf,0,len));*//*
-                            receiveEditText.setText(receiveEditText.getText().toString()+mathhelper.str2HexStr(buf));
-                        }
-                    });*/
                     String bb;
-                    /*bb=mathhelper.str2HexStr(buf);*/
                     bb=binary(buf,2);
                     System.out.print("Receive_Thread启动"+bb+"\n");
                     Message msg=new Message();

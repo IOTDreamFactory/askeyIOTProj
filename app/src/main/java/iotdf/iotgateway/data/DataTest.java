@@ -76,7 +76,7 @@ public class DataTest extends AppCompatActivity implements View.OnClickListener 
                 Data data1=new Data();
                 java.util.Date date = new java.util.Date();
                 long datetime = date.getTime();
-                for (int j=1;j<=5;j++)
+                for (int j=1;j<=10;j++)
                 {
                     for(int i=0;i<13;i++)
                     {

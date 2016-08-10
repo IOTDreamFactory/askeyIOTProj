@@ -23,22 +23,6 @@
         android:indicatorLeft="300dp">
     </ExpandableListView>
     </com.andview.refreshview.XRefreshView>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Button_Setting"
-        android:text="@string/Setting"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/Button_Test" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Button_Test"
-        android:text="@string/test"
-        android:layout_alignTop="@+id/nodeTime"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="49dp" />
     <ImageView
         android:layout_width="720dp"
         android:layout_height="200dp"

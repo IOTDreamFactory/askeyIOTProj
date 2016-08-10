@@ -12,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
-import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
@@ -22,15 +21,11 @@ import com.andview.refreshview.XRefreshView;
 
 import java.util.ArrayList;
 
-import iotdf.iotgateway.ConServ.ConSetting;
 import iotdf.iotgateway.data.DataService;
-import iotdf.iotgateway.data.DataTest;
 
 public class ChooseDevice extends Activity {
     private ExpandableListView listView;
     private XRefreshView xRefreshView;
-    private Button Button_Setting;
-    private Button Button_Test;
     private TextView User;
     private String Username;
     private String Connect="Connection:";
@@ -40,14 +35,9 @@ public class ChooseDevice extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_device);
         updateText();
-        Button_Setting=(Button) findViewById(R.id.Button_Setting);
-        Button_Test=(Button)findViewById(R.id.Button_Test) ;
         User=(TextView)findViewById(R.id.nodeUser);
         Bundle bundle1 = this.getIntent().getExtras();
         User.setText(bundle1.getString("Username"));
-        //Intent intent1 = this.getIntent();
-        //System.out.println(intent1.getStringExtra("Username"));
-        //User.setText(intent1.getStringExtra("Username"));
         xRefreshView=(XRefreshView)findViewById(R.id.custom_view);
         xRefreshView.setAutoRefresh(false);
         xRefreshView.restoreLastRefreshTime(lastRefreshTime);
@@ -82,7 +72,6 @@ public class ChooseDevice extends Activity {
         });
 
         listView = (ExpandableListView) findViewById(R.id.expandlist);
-        //listView.setGroupIndicator(this.getResources().getDrawable(R.drawable.expand_list_indicator));
         final MyExpandableListAdapter adapter = new MyExpandableListAdapter();
 
         listView.setAdapter(adapter);
@@ -96,14 +85,6 @@ public class ChooseDevice extends Activity {
                 ArrayList position=new ArrayList();
                 position.add(adapter.getGroup(groupPosition));
                 position.add(adapter.getChild(groupPosition,childPosition));
-
-                /*
-                System.out.println(adapter.getGroup(groupPosition));
-                System.out.println(adapter.getChild(groupPosition,childPosition));
-
-                System.out.println(position.get(0));
-                System.out.println(position.get(1));
-                */
                 bundle.putParcelableArrayList("position",position);
                 intent.putExtras(bundle);
                 intent.setClass(ChooseDevice.this,DevicePanel.class);
@@ -111,20 +92,7 @@ public class ChooseDevice extends Activity {
                 return true;
             }
         });
-        Button_Setting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(ChooseDevice.this, ConSetting.class);
-                startActivity(intent);
-            }
-        });
-        Button_Test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(ChooseDevice.this, DataTest.class);
-                startActivity(intent);
-            }
-        });
+
 
     }
 
@@ -135,10 +103,6 @@ public class ChooseDevice extends Activity {
     }
 
     private void updateText(){
-        /*
-        Username=getUser();
-        Connect+="Normal";
-         */
         Username="Username";
         Connect="Normal";
         TextView v1 = (TextView)findViewById(R.id.nodeUser);
@@ -158,27 +122,18 @@ public class ChooseDevice extends Activity {
                 R.drawable.icon,
                 R.drawable.icon
         };
-
-
-/*
-        private String[] armTypes = new String[]{
-                "节点1", "节点2", "节点3", "节点4", "节点5", "节点6", "节点7"
-        };
-*/
-
-        private String[][] arms = new String[][]{
-                {"温度传感器", "湿度传感器", "水份传感器", "光照传感器"},
-                {"温度传感器", "湿度传感器", "水份传感器", "光照传感器"},
-                {"温度传感器", "湿度传感器", "水份传感器", "光照传感器"},
-                {"温度传感器", "湿度传感器", "水份传感器", "光照传感器"},
-                {"温度传感器", "湿度传感器", "水份传感器", "光照传感器"},
-                {"温度传感器", "湿度传感器", "水份传感器", "光照传感器"},
-                {"温度传感器", "湿度传感器", "水份传感器", "光照传感器"},
-        };
-
         DataService mDataService=new DataService(ChooseDevice.this);
+        private String[][] arms = new String[mDataService.PointNum().size()][4];
         private String[] armTypes=(String[])mDataService.PointNum().toArray(new String[mDataService.PointNum().size()]);
-
+        public void getArms(){
+            for(int i=0;i<mDataService.PointNum().size();i++)
+            {
+                arms[i][0]="温度传感器";
+                arms[i][1]="湿度传感器";
+                arms[i][2]="水份传感器";
+                arms[i][3]="光照传感器";
+            }
+        }
 
         @Override
         public void registerDataSetObserver(DataSetObserver observer) {
@@ -227,29 +182,15 @@ public class ChooseDevice extends Activity {
 
         @Override
         public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-
-            //LinearLayout ll = new LinearLayout(ChooseDevice.this);
-            // ll.setOrientation(LinearLayout.HORIZONTAL);
-            //ll.setPadding(0,0,0,0);
-
+            getArms();
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) ChooseDevice.this
                         .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = inflater.inflate(R.layout.layout_parent, null);
             }
-
-            // ImageView logo = new ImageView(ChooseDevice.this);
-
-            //ExpandableListView arr = (ExpandableListView)findViewById(R.id.expandlist);
-            //arr.setGroupIndicator(null);
-
-            //logo.setImageResource(logos[groupPosition]);
-            //logo.setPadding(36, 15, 0, 0);
-            //ll.addView(logo);
             TextView textView = getTextView();
             textView=(TextView)convertView.findViewById(R.id.parent_textview_ein);
             textView.setText(getGroup(groupPosition).toString());
-            //textView.setPadding(50, 50, 0, 0);
             textView.setTextColor(Color.rgb(255,255,255));
 
             if(groupPosition%2==1)
@@ -258,9 +199,6 @@ public class ChooseDevice extends Activity {
                 textView.setBackgroundResource(R.color.colorNormalBlue);
             else
                 textView.setBackgroundResource(R.color.colorDreiBlue);
-
-
-            //ll.addView(textView);
             return textView;
         }
 
@@ -275,8 +213,6 @@ public class ChooseDevice extends Activity {
             textView.setText(getChild(groupPosition, childPosition).toString());
             ImageView logo = (ImageView)convertView.findViewById(R.id.node_icon);
             logo.setImageResource(logos[childPosition]);
-            //logo.setPadding(0,0,0,0);
-
             return convertView;
         }
 
@@ -320,10 +256,7 @@ public class ChooseDevice extends Activity {
             TextView textView = new TextView(ChooseDevice.this);
             textView.setLayoutParams(lp);
             textView.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
-            //textView.setPadding(36, 0, 0, 0);
             textView.setPadding(100, 0, 0, 0);
-            //textView.setTextSize(20);
-            //textView.setTextSize(40);
             return textView;
         }
 

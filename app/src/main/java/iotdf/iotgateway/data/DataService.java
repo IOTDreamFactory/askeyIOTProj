@@ -8,37 +8,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Administrator on 2016/7/4 0004.
- */
 public class DataService {
     private DatabaseHelper dbHelper;
     private Context context;
     public DataService(Context context) {
         dbHelper = new DatabaseHelper(context);
     }
-    //遍历表
-    public ArrayList ergodicTable(){
-        SQLiteDatabase sdb=dbHelper.getReadableDatabase();
-        String sql="select * from EnvData";
-        Cursor cursor =sdb.rawQuery(sql,null);
-        ArrayList<Map<String, Object>> coll = new ArrayList<Map<String, Object>>();
-        Map<String, Object> item;
-        cursor.moveToFirst();  // 重中之重，千万不能忘了
-        while(!cursor.isAfterLast()){
-            item = new HashMap<String, Object>();
-            item.put("arduinoNum", cursor.getString(0));
-            item.put("humidity", cursor.getString(1));
-            item.put("water", cursor.getString(2));
-            item.put("brightness", cursor.getString(3));
-            item.put("temp", cursor.getString(4));
-            item.put("time", cursor.getString(5));
-            coll.add(item);
-            cursor.moveToNext();
-        }
-        cursor.close();
-        return coll;
-    }
+
     //插入信息
     public boolean InsertData(Data data){
         SQLiteDatabase sdb=dbHelper.getReadableDatabase();
@@ -73,7 +49,7 @@ public class DataService {
         String sql="select distinct arduinoNum from EnvData";
         Cursor cursor =sdb.rawQuery(sql,null);
         ArrayList<String> Num=new ArrayList<String>();
-        cursor.moveToFirst();  // 重中之重，千万不能忘了
+        cursor.moveToFirst();  // 重中之重
         while(!cursor.isAfterLast()){
             Num.add(cursor.getString(0)+"");
             cursor.moveToNext();
@@ -87,7 +63,7 @@ public class DataService {
         String sql="select "+sensor+" from EnvData where arduinoNum='"+arduinoNum+"'and "+sensor+" is not null";
         Cursor cursor =sdb.rawQuery(sql,null);
         ArrayList<String> NumbersTab=new ArrayList<String>();
-        cursor.moveToFirst();  // 重中之重，千万不能忘了
+        cursor.moveToFirst();
         while(!cursor.isAfterLast()){
             NumbersTab.add(cursor.getString(0)+"");
             cursor.moveToNext();
@@ -100,7 +76,7 @@ public class DataService {
         SQLiteDatabase sdb=dbHelper.getReadableDatabase();
         String sql="select count("+sensor+") from EnvData where arduinoNum='"+arduinoNum+"'";
         Cursor cursor =sdb.rawQuery(sql,null);
-        cursor.moveToFirst();  // 重中之重，千万不能忘了
+        cursor.moveToFirst();
         while(!cursor.isAfterLast()){
             Num=cursor.getInt(0);
             cursor.moveToNext();

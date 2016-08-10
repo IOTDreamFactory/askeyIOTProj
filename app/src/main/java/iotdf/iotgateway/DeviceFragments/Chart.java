@@ -101,7 +101,6 @@ public class Chart extends Fragment {
     private void generateValues() {
         for (int i = 0; i < maxNumberOfLines; ++i) {
             for (int j = 0; j < numberOfPoints; ++j) {
-                /*randomNumbersTab[i][j] = (float) Math.random() * 100f;*/
                 randomNumbersTab[i][j]=NumbersTab[j];
             }
         }

@@ -108,10 +108,6 @@ public class Control extends Fragment implements View.OnClickListener,InputFrag.
                     }
                         break;
                     case 3:
-                        // Create and show the dialog.
-                        /*android.support.v4.app.DialogFragment inputFrag  = new InputFrag();
-                        inputFrag.show(getChildFragmentManager(),"input");
-                        System.out.println(Inputvalue);*/
                         if(postion.contains("光照"))
                         switch (INSwithcher){
                             case 1:
