@@ -2,92 +2,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorNodeGrey">
+    android:background="@color/colore8f3f8">
     <com.andview.refreshview.XRefreshView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:xrefreshview="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/custom_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorNodeGrey"
+        android:background="@color/colore8f3f8"
         xrefreshview:autoRefresh="true" >
     <ExpandableListView android:id="@+id/expandlist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:background="@color/colorNodeGrey"
+        android:layout_marginTop="55dp"
+        android:background="@color/colore8f3f8"
         android:childDivider="@null"
         android:childIndicator="@null"
         android:divider="@null"
-        android:groupIndicator="@drawable/expand_list_indicator"
-        android:indicatorLeft="300dp">
+        android:groupIndicator="@null"
+        android:indicatorLeft="650dp">
     </ExpandableListView>
     </com.andview.refreshview.XRefreshView>
-    <ImageView
-        android:layout_width="720dp"
-        android:layout_height="200dp"
-        android:id="@+id/nodeBG"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/node_bg" />
 
-    <TextClock
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/nodeTime"
-        android:textSize="35dp"
-        android:textColor="@android:color/white"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="100dp"
-        android:format24Hour="HH:mm"
-        android:format12Hour="hh:mm"
-        android:autoText="false"
-        android:textStyle="bold"
-        android:textIsSelectable="false"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/welcomeText"
-        android:textColor="@android:color/white"
-        android:text="Welcome!"
-        android:layout_marginTop="35dp"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:background="@null"
-        android:layout_marginLeft="10dp"
-        android:textIsSelectable="false"
-        android:editable="false"
-        android:focusable="false" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Username"
-        android:id="@+id/nodeUser"
-        android:background="@null"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="50dp"
-        android:textSize="20dp"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:textIsSelectable="false"
-        android:focusable="false"
-        android:editable="false" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/nodeConnect"
-        android:background="@null"
-        android:textSize="20dp"
-        android:text="Connection:Normal"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="65dp"
-        android:textIsSelectable="false"
-        android:editable="false"
-        android:focusable="false" />
+        android:text="DataTest"
+        android:id="@+id/Button_DataTest"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

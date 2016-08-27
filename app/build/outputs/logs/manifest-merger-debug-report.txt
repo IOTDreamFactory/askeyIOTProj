@@ -38,7 +38,7 @@ MERGED from [com.android.support:support-v4:24.0.0] E:\AndroidStudioProjects\IOT
 	android:icon
 		ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:9:9-40
 	android:theme
-		ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:12:9-40
+		ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:12:9-68
 activity#iotdf.iotgateway.MainActivity
 ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:13:9-19:20
 	android:name
@@ -57,14 +57,14 @@ activity#iotdf.iotgateway.DevicePanel
 ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:20:9-49
 	android:name
 		ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:20:19-46
-activity#iotdf.iotgateway.Regist
-ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:21:9-44
-	android:name
-		ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:21:19-41
 activity#iotdf.iotgateway.ChooseDevice
-ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:22:9-50
+ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:21:9-50
 	android:name
-		ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:22:19-47
+		ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:21:19-47
+activity#iotdf.iotgateway.Register
+ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:22:9-45
+	android:name
+		ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:22:19-43
 service#iotdf.iotgateway.ConServ.Myservice
 ADDED from E:\AndroidStudioProjects\IOTGateway\app\src\main\AndroidManifest.xml:24:9-27:39
 	android:enabled

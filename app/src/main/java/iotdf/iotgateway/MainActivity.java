@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import iotdf.iotgateway.ConSens.LocalService;
@@ -16,13 +16,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private EditText UserName;
     private EditText PWD;
-
-
     private Button startService;
-
     private Button stopService;
     private Button Login;
-    private Button Regist;
+    private ImageButton Register;
     private android.content.Intent Intent;
 
     private String mDeviceID;
@@ -34,18 +31,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         // mDeviceID = Secure.getString(this.getContentResolver(),
         // Secure.ANDROID_ID);
         mDeviceID = "zero";
-        ((TextView) findViewById(R.id.target_text)).setText(mDeviceID);
-        startService = (Button) findViewById(R.id.startService);
-        stopService = (Button) findViewById(R.id.stopService);
         Login=(Button)findViewById(R.id.button_login);
-        startService.setOnClickListener(this);
-        stopService.setOnClickListener(this);
-        Login=(Button)findViewById(R.id.button_login);
-        Regist=(Button) findViewById(R.id.button_sign);
-        UserName=(EditText)findViewById(R.id.LoginUser);
-        PWD=(EditText)findViewById(R.id.LoginPassword);
+        Register=(ImageButton) findViewById(R.id.button_register);
+        UserName=(EditText)findViewById(R.id.ETusr);
+        PWD=(EditText)findViewById(R.id.ETpwd);
         Login.setOnClickListener(this);
-        Regist.setOnClickListener(this);
+        Register.setOnClickListener(this);
         Intent intent1=new Intent(MainActivity.this, LocalService.class);
         startService(intent1);
     }
@@ -53,20 +44,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-/*            case R.id.startService:
-                SharedPreferences.Editor editor = getSharedPreferences(PushService2.TAG,
-                        MODE_PRIVATE).edit();
-                editor.putString(PushService2.PREF_DEVICE_ID, mDeviceID);
-                editor.commit();
-                PushService2.actionStart(getApplicationContext());
-                startService.setEnabled(false);
-                stopService.setEnabled(true);
-                break;
-            case R.id.stopService:
-                PushService2.actionStop(getApplicationContext());
-                startService.setEnabled(true);
-                stopService.setEnabled(false);
-                break;*/
             case R.id.button_login:
                 UserService uService=new UserService(MainActivity.this);
                 boolean flag=uService.login(UserName.getText().toString(), PWD.getText().toString());
@@ -87,8 +64,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     //登录信息错误，通过Toast显示提示信息
                     Toast.makeText(MainActivity.this,"用户登录信息错误" , Toast.LENGTH_SHORT).show();}
                 break;
-            case R.id.button_sign:
-                Intent=new Intent(MainActivity.this,Regist.class);
+            case R.id.button_register:
+                Intent=new Intent(MainActivity.this,Register.class);
                 startActivity(Intent);
                 break;
             default:

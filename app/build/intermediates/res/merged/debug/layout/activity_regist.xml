@@ -7,104 +7,80 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="iotdf.iotgateway.Regist"
-    android:background="@drawable/sign_bg">
+    tools:context="iotdf.iotgateway.Register"
+    android:background="@color/colore8f3f8">
 
 
-    <Button
-        android:layout_width="800px"
-        android:layout_height="100px"
-        android:id="@+id/button_login"
-        android:background="@drawable/sign_button"
-        android:layout_marginTop="60dp"
-        android:layout_alignTop="@+id/signAddr"
-        android:layout_alignLeft="@+id/signAddr" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TV_usr"
+        android:text="USERNAME"
+        android:textSize="18dp"
+        android:textColor="@color/color81a8b8"
+        android:layout_below="@+id/sign_back"
+        android:layout_alignLeft="@id/sign_back"
+        android:layout_marginTop="65dp" />
 
-    <ImageView
-        android:id="@+id/signUser"
-        android:background="@drawable/login_user"
-        android:layout_width="800px"
-        android:layout_height="100px"
-        android:layout_marginTop="265dp"
-        android:layout_marginLeft="40dp"
-        />
-    <ImageView
-        android:id="@+id/signPass"
-        android:background="@drawable/login_pass"
-        android:layout_width="800px"
-        android:layout_height="100px"
-        android:layout_marginTop="60dp"
-        android:layout_alignTop="@+id/signUser"
-        android:layout_alignLeft="@+id/signUser"
-        />
-    <ImageView
-        android:id="@+id/signAddr"
-        android:background="@drawable/sign_add"
-        android:layout_width="800px"
-        android:layout_height="100px"
-        android:layout_marginTop="60dp"
-        android:layout_alignTop="@+id/signPass"
-        android:layout_alignLeft="@+id/signPass"
-        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TV_pwd"
+        android:text="PASSWORD"
+        android:textSize="18dp"
+        android:textColor="@color/color81a8b8"
+        android:layout_below="@+id/TV_usr"
+        android:layout_alignLeft="@id/TV_usr"
+        android:layout_marginTop="65dp" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="420dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/SignUserEdit"
-        android:layout_marginTop="260dp"
+        android:id="@+id/ET_USR"
         android:layout_marginLeft="90dp"
-        android:textColor="@color/colorNormalBlue"
-        android:hint="UserName"
-        android:textColorHint="@color/colorHintBlue"
-        android:background="@null"
+        android:textColor="@color/colore8f3f8"
+        android:background="@drawable/roundedrectangle"
         android:enabled="true"
         android:editable="true"
         android:textSize="25dp"
-        android:textCursorDrawable="@null"/>
+        android:textCursorDrawable="@null"
+        android:layout_alignBaseline="@id/TV_usr"
+        android:layout_toEndOf="@+id/TV_usr"
+        android:layout_marginStart="26dp" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="420dp"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/SignPassEdit"
-        android:layout_marginTop="60dp"
-        android:background="@null"
-        android:textColor="@color/colorNormalBlue"
-        android:textColorHint="@color/colorHintBlue"
+        android:id="@+id/ET_PWD"
+        android:background="@drawable/roundedrectangle"
+        android:textColor="@color/colore8f3f8"
         android:password="true"
-        android:hint="Password"
-        android:layout_alignTop="@+id/SignUserEdit"
-        android:layout_alignLeft="@+id/SignUserEdit"
-        android:layout_alignStart="@+id/SignUserEdit"
+        android:layout_alignBaseline="@id/TV_pwd"
+        android:layout_toEndOf="@id/TV_pwd"
+        android:layout_centerVertical="true"
         android:textSize="25dp"
-        android:textCursorDrawable="@null"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/SignAddrEdit"
-        android:layout_marginTop="60dp"
-        android:background="@null"
-        android:textColor="@color/colorNormalBlue"
-        android:textColorHint="@color/colorHintBlue"
-        android:password="true"
-        android:hint="Address"
-        android:layout_alignTop="@+id/SignPassEdit"
-        android:layout_alignLeft="@+id/SignPassEdit"
-        android:layout_alignStart="@+id/SignPassEdit"
-        android:textSize="25dp"
-        android:textCursorDrawable="@null"/>
+        android:textCursorDrawable="@null"
+        android:layout_marginStart="26dp"  />
 
     <ImageButton
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/sign_back"
-        android:background="@drawable/sign_ico"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="20dp" />
+        android:background="@drawable/registerlogo"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="50dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ImageButton_submit"
+        android:layout_below="@+id/TV_pwd"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/submit" />
 
 </RelativeLayout>

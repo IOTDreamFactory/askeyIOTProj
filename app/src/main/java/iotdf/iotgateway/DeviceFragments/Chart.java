@@ -155,9 +155,6 @@ public class Chart extends Fragment {
         // Reset viewport height range to (0,100)
         final Viewport v = new Viewport(chart.getMaximumViewport());
         v.bottom = 0;
-        if(postion.contains("光照"))
-        v.top = 5000;
-        else
         v.top=100;
         v.left = 0;
         v.right = numberOfPoints - 1;

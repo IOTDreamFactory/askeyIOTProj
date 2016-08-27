@@ -7,124 +7,68 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+
     tools:context="iotdf.iotgateway.MainActivity"
-    android:background="@drawable/login_bg">
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/start_button"
-        android:id="@+id/startService"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:visibility="invisible" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/stop_button"
-        android:id="@+id/stopService"
-        android:layout_alignBottom="@+id/startService"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:visibility="invisible" />
-
-    <Button
-        android:layout_width="800px"
-        android:layout_height="100px"
-        android:id="@+id/button_login"
-        android:background="@drawable/login_button"
-        android:layout_marginTop="60dp"
-        android:layout_alignTop="@+id/imagePass"
-        android:layout_alignLeft="@+id/imagePass" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="mDeviceID"
-        android:id="@+id/target_text"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:visibility="invisible" />
-
-    <ImageView
-        android:id="@+id/imageUser"
-        android:background="@drawable/login_user"
-        android:layout_width="800px"
-        android:layout_height="100px"
-        android:layout_marginTop="295dp"
-        android:layout_marginLeft="40dp"
-        />
-
-    <ImageView
-        android:id="@+id/imagePass"
-        android:background="@drawable/login_pass"
-        android:layout_width="800px"
-        android:layout_height="100px"
-        android:layout_marginTop="60dp"
-        android:layout_alignTop="@+id/imageUser"
-        android:layout_alignLeft="@+id/imageUser"
-        />
+    android:background="@color/colore8f3f8">
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/LoginUser"
-        android:layout_marginTop="290dp"
-        android:layout_marginLeft="90dp"
-        android:textColor="@color/colorNormalBlue"
-        android:hint="UserName"
-        android:textColorHint="@color/colorHintBlue"
-        android:background="@null"
-        android:enabled="true"
-        android:editable="true"
+        android:background="@drawable/roundedrectangle"
+        android:layout_height="49dp"
+        android:layout_width="707dp"
+        android:id="@+id/ETusr"
+        android:textColor="@color/colore8f3f8"
         android:textSize="25dp"
-        android:textCursorDrawable="@null"/>
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="31dp"
+        android:hint="USERNAME"
+        android:textColorHint="@color/colore8f3f8"/>
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:background="@drawable/roundedrectangle"
+        android:layout_height="49dp"
+        android:layout_width="707dp"
+        android:textColor="@color/colore8f3f8"
+        android:textSize="25dp"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/LoginPassword"
-        android:layout_marginTop="60dp"
-        android:background="@null"
-        android:textColor="@color/colorNormalBlue"
-        android:textColorHint="@color/colorHintBlue"
-        android:password="true"
-        android:hint="Password"
-        android:layout_alignTop="@+id/LoginUser"
-        android:layout_alignLeft="@+id/LoginUser"
-        android:layout_alignStart="@+id/LoginUser"
-        android:textSize="25dp"
-        android:textCursorDrawable="@null"/>
+        android:id="@+id/ETpwd"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/ETusr"
+        android:layout_alignStart="@+id/ETusr"
+        android:hint="PASSWORD"
+        android:textColorHint="@color/colore8f3f8"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="记住密码"
+        android:textColor="@color/color81a8b8"
+        android:id="@+id/checkBox"
+        android:layout_marginTop="28dp"
+        android:buttonTint="@color/color81a8b8"
+        android:layout_below="@+id/ETpwd"
+        android:layout_alignStart="@+id/ETpwd" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgot your password?"
-        android:id="@+id/button_forgot"
-        android:layout_below="@+id/button_login"
-        android:layout_alignLeft="@+id/button_login"
-        android:layout_alignStart="@+id/button_login"
-        android:textColor="@color/colorNormalBlue"
-        android:textSize="8dp"
-        android:background="@null" />
+        android:text="login"
+        android:textSize="30dp"
+        android:textColor="@color/color81a8b8"
+        android:id="@+id/button_login"
+        android:background="@drawable/roundedrectangle_1"
+        android:layout_alignTop="@+id/checkBox"
+        android:layout_alignEnd="@+id/ETpwd" />
 
-    <Button
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Need to sign up?"
-        android:id="@+id/button_sign"
-        android:textColor="@color/colorNormalBlue"
-        android:textSize="8dp"
-        android:background="@null"
-        android:layout_below="@+id/button_login"
-        android:layout_alignRight="@+id/button_login"
-        android:layout_alignEnd="@+id/button_login" />
-
-
+        android:id="@+id/button_register"
+        android:clickable="true"
+        android:background="@drawable/clicktoregister"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/checkBox"
+        android:layout_marginBottom="33dp" />
 </RelativeLayout>

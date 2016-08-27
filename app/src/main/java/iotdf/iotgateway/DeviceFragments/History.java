@@ -119,7 +119,12 @@ public class History extends  Fragment implements View.OnClickListener {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("time", TimeUtils.times((String)Datamap.get("time")));
             map.put("status", "正常");
-            map.put("info",Datamap.get(sensor));
+            if(postion.contains("光照"))
+            map.put("info",Datamap.get(sensor)+"LX");
+            else if(postion.contains("水份")||postion.contains("湿度"))
+                map.put("info",Datamap.get(sensor)+"%");
+            else if(postion.contains("温度"))
+                map.put("info",Datamap.get(sensor)+"℃");
             System.out.println(Datamap.get("time")+" "+Datamap.get(sensor));
             System.out.println(TimeUtils.times("1470485990103"));
             list.add(map);

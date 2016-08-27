@@ -24,10 +24,6 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\ico_humi.png"
     },
     {
-        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\parent_close.png",
-        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\parent_close.png"
-    },
-    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\login_pass.png",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\login_pass.png"
     },
@@ -56,6 +52,14 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\sign_button.png"
     },
     {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\parent_close.9.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\parent_close.9.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\registerlogo.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\registerlogo.png"
+    },
+    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_textfield_search_material.xml"
     },
@@ -70,6 +74,10 @@
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\logo.png",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\logo.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\parent_open.9.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\parent_open.9.png"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\login_button.png",
@@ -124,12 +132,20 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_switch_thumb_material.xml"
     },
     {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\submit.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\submit.png"
+    },
+    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\con_down.png",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\con_down.png"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\top_temp.png",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\top_temp.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\roundedrectangle_1.xml",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\roundedrectangle_1.xml"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
@@ -144,8 +160,16 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\expand_list_indicator.xml"
     },
     {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\clicktoregister.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\clicktoregister.png"
+    },
+    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_material.xml",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_ic_clear_material.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\roundedrectangle.xml",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\roundedrectangle.xml"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ico_water.png",
@@ -212,16 +236,16 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\node_bg.png"
     },
     {
-        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\parent_open.png",
-        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\parent_open.png"
-    },
-    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_spinner_textfield_background_material.xml"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\sign_add.png",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\sign_add.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\checkboxstyle.xml",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\checkboxstyle.xml"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\login_bg.png",

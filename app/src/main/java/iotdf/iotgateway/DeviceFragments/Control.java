@@ -148,8 +148,10 @@ public class Control extends Fragment implements View.OnClickListener,InputFrag.
                         }
                         else
                         {
-                            fragmentCallback.CallBack(mathhelper.str2HexStr("101001"+arduinoNum+"00100000000001111001011"));
-                            System.out.println("发送："+mathhelper.str2HexStr("101001"+arduinoNum+"00100000000001111001011"));
+                            /*fragmentCallback.CallBack(mathhelper.str2HexStr("101001"+arduinoNum+"00100000000001111001011"));
+                            System.out.println("发送："+mathhelper.str2HexStr("101001"+arduinoNum+"00100000000001111001011"));*/
+                            fragmentCallback.CallBack(mathhelper.str2HexStr("101001"+arduinoNum+"00100000000011001001011"));
+                            System.out.println("发送："+mathhelper.str2HexStr("101001"+arduinoNum+"00100000000011001001011"));
                             Toast toast=Toast.makeText(getActivity(),"加水",Toast.LENGTH_SHORT);
                             toast.show();
                         }

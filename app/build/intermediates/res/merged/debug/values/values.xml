@@ -27,6 +27,8 @@
     <color name="bright_foreground_material_light">@android:color/black</color>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
+    <color name="color02fcf3">#02fcf3</color>
+    <color name="color81a8b8">#81a8b8</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorDreiBlue">#3e5a98</color>
     <color name="colorHintBlue">#92aed3</color>
@@ -36,6 +38,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorZweiBlue">#375069</color>
+    <color name="colorc2cbce">#c2cbce</color>
+    <color name="colordbe6ec">#dbe6ec</color>
+    <color name="colore8f3f8">#e8f3f8</color>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
@@ -1300,6 +1305,15 @@
         <item name="android:background">?attr/controlBackground</item>
         <item name="android:minWidth">56dp</item>
         <item name="android:scaleType">center</item>
+    </style>
+    <style name="MyCheck_Box" parent="@android:style/Widget.CompoundButton.CheckBox">
+
+        <item name="android:button">@drawable/checkboxstyle</item>
+
+        <item name="android:paddingLeft">5.0dip</item>
+
+        <item name="android:textSize">14sp</item>
+
     </style>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
