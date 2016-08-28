@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colore8f3f8">
+    android:background="@color/colorNodeGrey">
     <com.andview.refreshview.XRefreshView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:xrefreshview="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -11,24 +11,24 @@
         android:layout_height="match_parent"
         android:background="@color/colore8f3f8"
         xrefreshview:autoRefresh="true" >
-    <ExpandableListView android:id="@+id/expandlist"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
-        android:background="@color/colore8f3f8"
-        android:childDivider="@null"
-        android:childIndicator="@null"
-        android:divider="@null"
-        android:groupIndicator="@null"
-        android:indicatorLeft="650dp">
-    </ExpandableListView>
+        <iotdf.iotgateway.AnimatedExpandableListView
+            android:id="@+id/expandlist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@color/colore8f3f8"
+            android:childDivider="@null"
+            android:childIndicator="@null"
+            android:divider="@null"
+            android:groupIndicator="@null"
+            android:indicatorLeft="300dp">
+        </iotdf.iotgateway.AnimatedExpandableListView>
     </com.andview.refreshview.XRefreshView>
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DataTest"
         android:id="@+id/Button_DataTest"
+        android:text="Datatest"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
 
