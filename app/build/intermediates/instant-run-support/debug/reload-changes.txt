@@ -1,2 +1,7 @@
 CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class
 CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\iotdf\iotgateway\ChooseDevice$MyExpandableListAdapter$override.class
+CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\iotdf\iotgateway\ChooseDevice$3$override.class
+CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\iotdf\iotgateway\ChooseDevice$2$override.class
+CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\iotdf\iotgateway\ChooseDevice$1$override.class
+CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\iotdf\iotgateway\ChooseDevice$override.class
+CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\iotdf\iotgateway\ChooseDevice$1$1$override.class

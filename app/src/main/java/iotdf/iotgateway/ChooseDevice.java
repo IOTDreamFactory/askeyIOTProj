@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Gravity;
@@ -74,16 +73,28 @@ public class ChooseDevice extends Activity implements View.OnClickListener {
         final MyExpandableListAdapter adapter = new MyExpandableListAdapter(ChooseDevice.this);
 
         listView.setAdapter(adapter);
-        listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+        listView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
 
             @Override
-            public boolean onChildClick(ExpandableListView parent, View v,
-                                        int groupPosition, int childPosition, long id) {
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                // We call collapseGroupWithAnimation(int) and
+                // expandGroupWithAnimation(int) to animate group
+                // expansion/collapse.
                 if (listView.isGroupExpanded(groupPosition)) {
                     listView.collapseGroupWithAnimation(groupPosition);
                 } else {
                     listView.expandGroupWithAnimation(groupPosition);
                 }
+                return true;
+            }
+
+        });
+        listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+
                 Intent intent = new Intent();
                 Bundle bundle=new Bundle();
                 ArrayList position=new ArrayList();
@@ -141,16 +152,6 @@ public class ChooseDevice extends Activity implements View.OnClickListener {
         }
 
         @Override
-        public void registerDataSetObserver(DataSetObserver observer) {
-
-        }
-
-        @Override
-        public void unregisterDataSetObserver(DataSetObserver observer) {
-
-        }
-
-        @Override
         public int getGroupCount() {
             return armTypes.length;
         }
@@ -205,11 +206,6 @@ public class ChooseDevice extends Activity implements View.OnClickListener {
         }
 
         @Override
-        public boolean isChildSelectable(int i, int i1) {
-            return true;
-        }
-
-        @Override
         public View getRealChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) ChooseDevice.this
@@ -225,7 +221,43 @@ public class ChooseDevice extends Activity implements View.OnClickListener {
 
         @Override
         public int getRealChildrenCount(int groupPosition) {
-            return 4;
+            return  arms[groupPosition].length;
+        }
+
+
+        @Override
+        public boolean isChildSelectable(int groupPosition, int childPosition) {
+            return true;
+        }
+
+        @Override
+        public boolean areAllItemsEnabled() {
+            return false;
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return false;
+        }
+
+        @Override
+        public void onGroupExpanded(int groupPosition) {
+
+        }
+
+        @Override
+        public void onGroupCollapsed(int groupPosition) {
+
+        }
+
+        @Override
+        public long getCombinedChildId(long groupId, long childId) {
+            return 0;
+        }
+
+        @Override
+        public long getCombinedGroupId(long groupId) {
+            return 0;
         }
 
         private TextView getTextView() {
