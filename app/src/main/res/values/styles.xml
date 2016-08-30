@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="MyCheck_Box" parent="@android:style/Widget.CompoundButton.CheckBox">
 
         <item name="android:button">@drawable/checkboxstyle</item>
@@ -16,4 +17,8 @@
         <item name="android:textSize">14sp</item>
 
     </style>
+
+    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

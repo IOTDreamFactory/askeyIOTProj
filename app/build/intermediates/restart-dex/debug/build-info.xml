@@ -4,50 +4,37 @@
     api-level="21"
     density="mdpi"
     format="7"
-    timestamp="29260805783417"
+    timestamp="16573398760760"
     token="1030569266767423042" >
 
     <task
         name="javac"
-        duration="131" />
+        duration="193" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="24" />
+        duration="12" />
     <task
         name="verifier"
-        duration="5" />
+        duration="1" />
 
     <artifact
         location="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
         type="DEX" />
 
-    <build timestamp="20008935435252" >
+    <build timestamp="15415946034051" >
         <artifact
             location="E:\AndroidStudioProjects\IOTGateway\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
-    <build
-        timestamp="20308042871429"
-        verifier="IMPLEMENTED_INTERFACES_CHANGE" >
-        <artifact
-            location="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
-            type="DEX" />
-        <artifact
-            location="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
-            type="DEX" />
-        <artifact
-            location="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_9\classes.dex"
-            type="DEX" />
-    </build>
-    <build timestamp="23754240332709" >
+    <build timestamp="16496830683643" >
         <artifact
             location="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\res\resources-debug.ap_"
             type="RESOURCES" />
     </build>
-    <build timestamp="29260805783417" >
+    <build timestamp="16573398760760" >
         <artifact
             location="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
             type="DEX" />

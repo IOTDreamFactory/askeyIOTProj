@@ -12,6 +12,14 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
     },
     {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\dot.xml",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.nightonke\\boommenu\\1.0.9\\res\\drawable\\dot.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\halfhour.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\halfhour.png"
+    },
+    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\sign_ico.png",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\sign_ico.png"
     },
@@ -30,6 +38,10 @@
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\custom.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\custom.png"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background.xml",
@@ -84,12 +96,12 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_btn_colored_material.xml"
     },
     {
-        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_tick_mark_material.xml",
-        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
-    },
-    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\sign_bg.png",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\sign_bg.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_tick_mark_material.xml",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\top_humi.png",
@@ -104,12 +116,12 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_ratingbar_small_material.xml"
     },
     {
-        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\parentindicator_open.9.png",
-        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\parentindicator_open.9.png"
-    },
-    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\con_up.png",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\con_up.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\parentindicator_open.9.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\parentindicator_open.9.png"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\icon.png",
@@ -124,10 +136,6 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\login_user.png"
     },
     {
-        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mparent_open.png",
-        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\mparent_open.png"
-    },
-    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\parentindicator_close.9.png",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\parentindicator_close.9.png"
     },
@@ -136,8 +144,16 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_switch_thumb_material.xml"
     },
     {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mparent_open.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\mparent_open.png"
+    },
+    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\submit.png",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\submit.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ham_button_ripple.xml",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.nightonke\\boommenu\\1.0.9\\res\\drawable\\ham_button_ripple.xml"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\con_down.png",
@@ -160,6 +176,14 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\con_reboot.png"
     },
     {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\onehour.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\onehour.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\circle_button_ripple.xml",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.nightonke\\boommenu\\1.0.9\\res\\drawable\\circle_button_ripple.xml"
+    },
+    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\clicktoregister.png",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\clicktoregister.png"
     },
@@ -180,6 +204,10 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_ratingbar_material.xml"
     },
     {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\boom.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\boom.png"
+    },
+    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_btn_check_material.xml"
     },
@@ -194,6 +222,10 @@
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\login_button_click.png",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\login_button_click.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\bar.xml",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.nightonke\\boommenu\\1.0.9\\res\\drawable\\bar.xml"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
@@ -228,12 +260,28 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\ico_temp.png"
     },
     {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\back.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\back.png"
+    },
+    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_ic_search_api_material.xml"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\node_bg.png",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\node_bg.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\java.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\java.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\boom_button_ripple.xml",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.nightonke\\boommenu\\1.0.9\\res\\drawable\\boom_button_ripple.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\boom_menu_button.xml",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.nightonke\\boommenu\\1.0.9\\res\\drawable\\boom_menu_button.xml"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
@@ -244,6 +292,10 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\sign_add.png"
     },
     {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\github.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\github.png"
+    },
+    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\checkboxstyle.xml",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\checkboxstyle.xml"
     },
@@ -252,12 +304,20 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\login_bg.png"
     },
     {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_snackbar_background.xml",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\24.0.0\\res\\drawable\\design_snackbar_background.xml"
+    },
+    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_text_cursor_material.xml",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_text_cursor_material.xml"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_seekbar_thumb_material.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tenmins.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\tenmins.png"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\sign_cant.png",
@@ -272,16 +332,24 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\tab_lable.xml"
     },
     {
-        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ico_chart.png",
-        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\ico_chart.png"
-    },
-    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_cab_background_top_material.xml"
     },
     {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ico_chart.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\ico_chart.png"
+    },
+    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\reboot.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\reboot.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_fab_background.xml",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\24.0.0\\res\\drawable\\design_fab_background.xml"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\con_info.png",
@@ -302,5 +370,9 @@
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\top_sun.png",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\top_sun.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\circle_button.xml",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.nightonke\\boommenu\\1.0.9\\res\\drawable\\circle_button.xml"
     }
 ]

@@ -16,29 +16,45 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" >
-        <activity android:name="iotdf.iotgateway.MainActivity" >
+        <activity
+            android:name="iotdf.iotgateway.MainActivity"
+            android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="iotdf.iotgateway.DevicePanel" />
-        <activity android:name="iotdf.iotgateway.ChooseDevice" />
-        <activity android:name="iotdf.iotgateway.Register" />
+        <activity
+            android:name="iotdf.iotgateway.DevicePanel"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="iotdf.iotgateway.ChooseDevice"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="iotdf.iotgateway.Register"
+            android:screenOrientation="landscape" />
 
         <service
             android:name="iotdf.iotgateway.ConServ.Myservice"
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name="iotdf.iotgateway.ConServ.ConSetting" />
-        <activity android:name="iotdf.iotgateway.data.DataTest" />
+        <activity
+            android:name="iotdf.iotgateway.ConServ.ConSetting"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="iotdf.iotgateway.data.DataTest"
+            android:screenOrientation="landscape" />
 
         <service
             android:name="iotdf.iotgateway.ConSens.LocalService"
             android:enabled="true"
             android:exported="true" />
+
+        <activity
+            android:name="iotdf.iotgateway.ControlPanel"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>

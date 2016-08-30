@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorNodeGrey">
     <com.andview.refreshview.XRefreshView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:xrefreshview="http://schemas.android.com/apk/res-auto"
@@ -31,5 +32,17 @@
         android:text="Datatest"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
+    <com.nightonke.boommenu.BoomMenuButton
+        android:id="@+id/boom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:boom_inActionBar="false"
+        app:boom_button_color="@color/color81a8b8"
+        app:boom_button_pressed_color="@color/color81a8b8"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="75dp"
+        />
 
 </RelativeLayout>

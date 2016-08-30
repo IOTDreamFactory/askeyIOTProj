@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.andview.refreshview.XRefreshView;
+import com.nightonke.boommenu.BoomMenuButton;
+import com.nightonke.boommenu.Types.BoomType;
+import com.nightonke.boommenu.Types.ButtonType;
+import com.nightonke.boommenu.Types.PlaceType;
+import com.nightonke.boommenu.Util;
 
 import java.util.ArrayList;
 
@@ -29,11 +36,14 @@ public class ChooseDevice extends Activity implements View.OnClickListener {
     private Resources resources;
     public static long lastRefreshTime;
     private Button B_DataTest;
+    private BoomMenuButton boomMenuButton;
+    private boolean init=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_device);
         Bundle bundle1 = this.getIntent().getExtras();
+        boomMenuButton = (BoomMenuButton)findViewById(R.id.boom);
         B_DataTest=(Button)findViewById(R.id.Button_DataTest);
         B_DataTest.setOnClickListener(this);
         xRefreshView=(XRefreshView)findViewById(R.id.custom_view);
@@ -94,28 +104,65 @@ public class ChooseDevice extends Activity implements View.OnClickListener {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
-
-                Intent intent = new Intent();
-                Bundle bundle=new Bundle();
-                ArrayList position=new ArrayList();
-                position.add(adapter.getGroup(groupPosition));
-                position.add(adapter.getChild(groupPosition,childPosition));
-                bundle.putParcelableArrayList("position",position);
-                intent.putExtras(bundle);
-                intent.setClass(ChooseDevice.this,DevicePanel.class);
-                startActivity(intent);
+                if(childPosition==4)
+                {
+                    Intent intent=new Intent(ChooseDevice.this,ControlPanel.class);
+                    startActivity(intent);
+                }
+                else
+                {
+                    Intent intent = new Intent();
+                    Bundle bundle=new Bundle();
+                    ArrayList position=new ArrayList();
+                    position.add(adapter.getGroup(groupPosition));
+                    position.add(adapter.getChild(groupPosition,childPosition));
+                    bundle.putParcelableArrayList("position",position);
+                    intent.putExtras(bundle);
+                    intent.setClass(ChooseDevice.this,DevicePanel.class);
+                    startActivity(intent);
+                }
                 return true;
             }
         });
 
 
     }
-
     @Override
-    protected void onResume(){
-        super.onResume();
-        onCreate(null);
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+
+        // Use a param to record whether the boom button has been initialized
+        // Because we don't need to init it again when onResume()
+        Drawable[] subButtonDrawables = new Drawable[3];
+        int[] drawablesResource = new int[]{
+                R.drawable.boom,
+                R.drawable.java,
+                R.drawable.github
+        };
+        for (int i = 0; i < 3; i++)
+            subButtonDrawables[i] = ContextCompat.getDrawable(this, drawablesResource[i]);
+
+        String[] subButtonTexts = new String[]{"BoomMenuButton", "View source code", "Follow me"};
+
+        int[][] subButtonColors = new int[3][2];
+        for (int i = 0; i < 3; i++) {
+            subButtonColors[i][1] = ContextCompat.getColor(this, R.color.colore8f3f8);
+            subButtonColors[i][0] = Util.getInstance().getPressedColor(subButtonColors[i][1]);
+        }
+
+        // Now with Builder, you can init BMB more convenient
+        new BoomMenuButton.Builder()
+                .addSubButton(ContextCompat.getDrawable(this, R.drawable.boom), subButtonColors[0], "BoomMenuButton")
+                .addSubButton(ContextCompat.getDrawable(this, R.drawable.java), subButtonColors[0], "View source code")
+                .addSubButton(ContextCompat.getDrawable(this, R.drawable.github), subButtonColors[0], "Follow me")
+                .button(ButtonType.CIRCLE)
+                .boom(BoomType.PARABOLA)
+                .place(PlaceType.CIRCLE_3_1)
+                .subButtonTextColor(ContextCompat.getColor(this, R.color.colore8f3f8))
+                .subButtonsShadow(Util.getInstance().dp2px(2), Util.getInstance().dp2px(2))
+                .init(boomMenuButton);
     }
+
 
     @Override
     public void onClick(View view) {
@@ -139,7 +186,7 @@ public class ChooseDevice extends Activity implements View.OnClickListener {
                 R.drawable.ico_bright,
         };
         DataService mDataService=new DataService(ChooseDevice.this);
-        private String[][] arms = new String[mDataService.PointNum().size()][4];
+        private String[][] arms = new String[mDataService.PointNum().size()][5];
         private String[] armTypes=(String[])mDataService.PointNum().toArray(new String[mDataService.PointNum().size()]);
         public void getArms(){
             for(int i=0;i<mDataService.PointNum().size();i++)
@@ -148,6 +195,7 @@ public class ChooseDevice extends Activity implements View.OnClickListener {
                 arms[i][1]="湿度传感器";
                 arms[i][2]="水份传感器";
                 arms[i][3]="光照传感器";
+                arms[i][4]="控制该节点";
             }
         }
 
@@ -214,8 +262,8 @@ public class ChooseDevice extends Activity implements View.OnClickListener {
             }
             TextView textView = (TextView)convertView.findViewById(R.id.second_textview) ;
             textView.setText(getChild(groupPosition, childPosition).toString());
-            ImageView logo = (ImageView)convertView.findViewById(R.id.node_icon);
-            logo.setImageResource(logos[childPosition]);
+/*            ImageView logo = (ImageView)convertView.findViewById(R.id.node_icon);
+            logo.setImageResource(logos[childPosition]);*/
             return convertView;
         }
 

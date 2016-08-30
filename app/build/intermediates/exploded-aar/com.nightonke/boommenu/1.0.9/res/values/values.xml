@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="darkness">#66000000</color>
+    <color name="default_boom_button_color">#FF4081</color>
+    <color name="default_boom_button_color_pressed">#ff6297</color>
+    <color name="default_fill_color">#ffffff</color>
+    <color name="default_shadow_color">#88757575</color>
+    <color name="lightness">#00000000</color>
+    <color name="shadow">#AA000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <declare-styleable name="BoomMenuButton"><attr format="boolean" name="boom_inActionBar"/><attr format="boolean" name="boom_inList"/><attr format="color" name="boom_button_color"/><attr format="color" name="boom_button_pressed_color"/></declare-styleable>
+    <declare-styleable name="ShadowLayout"><attr format="dimension" name="sl_cornerRadius"/><attr format="dimension" name="sl_shadowRadius"/><attr format="color" name="sl_shadowColor"/><attr format="dimension" name="sl_dx"/><attr format="dimension" name="sl_dy"/></declare-styleable>
+    <dimen name="default_boom_button_corner_radius">28dp</dimen>
+    <dimen name="default_circle_button_corner_2radius">80dp</dimen>
+    <dimen name="default_circle_button_corner_radius">40dp</dimen>
+    <dimen name="default_circle_button_text_size">10sp</dimen>
+    <dimen name="default_corner_radius">4dp</dimen>
+    <dimen name="default_ham_button_corner_radius">3dp</dimen>
+    <dimen name="default_shadow_radius">4dp</dimen>
+    <string name="app_name">BoomMenu</string>
+</resources>

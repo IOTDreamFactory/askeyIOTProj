@@ -10,29 +10,39 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DevicePanel" />
-        <activity android:name=".ChooseDevice" />
-        <activity android:name=".Register"/>
+        <activity android:name=".DevicePanel"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".ChooseDevice"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".Register"
+            android:screenOrientation="landscape"/>
 
         <service
             android:name=".ConServ.Myservice"
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".ConServ.ConSetting" />
-        <activity android:name=".data.DataTest" />
+        <activity android:name=".ConServ.ConSetting"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".data.DataTest"
+            android:screenOrientation="landscape"/>
 
         <service
             android:name=".ConSens.LocalService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <activity
+            android:name=".ControlPanel"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

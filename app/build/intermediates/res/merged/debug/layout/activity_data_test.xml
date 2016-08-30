@@ -5,6 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="iotdf.iotgateway.data.DataTest">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="auto"
+        android:id="@+id/button_auto"/>
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,9 +63,4 @@
         android:text="@string/Back"
         android:id="@+id/button_back"
 />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="auto"
-        android:id="@+id/button_auto"/>
 </LinearLayout>

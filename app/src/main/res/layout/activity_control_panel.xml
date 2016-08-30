@@ -1,0 +1,131 @@
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colore8f3f8">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/back"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/back"
+        />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reboot"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="65dp"
+        android:layout_marginLeft="55dp"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/reboot"/>
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/switch1"
+
+        android:layout_marginTop="70dp"
+        android:layout_below="@+id/tv_reboot"
+        android:layout_alignEnd="@+id/tv_reboot" />
+
+    <com.rey.material.widget.Slider
+        style="@style/Material.Widget.Slider"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:sl_minValue="0"
+        app:sl_maxValue="100"
+        app:sl_value="50"
+        app:sl_primaryColor="@color/color81a8b8"
+        app:sl_discreteMode="true"
+        android:paddingBottom="10dp"
+        android:id="@+id/view"
+        android:layout_alignBottom="@+id/reboot"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="29dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:background="@drawable/tenmins"
+        android:layout_alignTop="@+id/switch1"
+        android:layout_alignStart="@+id/view" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton2"
+        android:background="@drawable/halfhour"
+        android:layout_alignTop="@+id/imageButton"
+        android:layout_toEndOf="@+id/imageButton"
+        android:layout_marginLeft="10dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton3"
+        android:layout_alignBottom="@+id/imageButton2"
+        android:layout_toEndOf="@+id/imageButton2"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/onehour" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton4"
+        android:layout_alignBottom="@+id/imageButton3"
+        android:layout_toEndOf="@+id/imageButton3"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/custom" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="重启"
+        android:textColor="@color/color81a8b8"
+        android:id="@+id/tv_reboot"
+        android:layout_marginTop="28dp"
+        android:layout_below="@+id/reboot"
+        android:layout_alignEnd="@+id/back" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="亮度调节"
+        android:textColor="@color/color81a8b8"
+        android:id="@+id/tv_brightnessControl"
+        android:layout_alignBottom="@+id/tv_reboot"
+        android:layout_alignStart="@+id/imageButton2"
+        android:layout_marginStart="70dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="窗帘开关"
+        android:textColor="@color/color81a8b8"
+        android:id="@+id/tv_swich"
+        android:layout_below="@+id/imageButton"
+        android:layout_alignStart="@+id/tv_reboot"
+        android:layout_marginTop="22dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="上传间隔"
+        android:id="@+id/tv_time"
+        android:layout_alignBottom="@+id/tv_swich"
+        android:layout_alignStart="@+id/tv_brightnessControl" />
+
+</RelativeLayout>
