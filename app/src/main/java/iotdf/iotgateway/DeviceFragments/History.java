@@ -45,7 +45,7 @@ public class History extends  Fragment implements View.OnClickListener {
         else if (postion.contains("湿度"))
             sensor="humidity";
         if(view==null)
-        view = inflater.inflate(R.layout.fragment_history, null);
+            view = inflater.inflate(R.layout.fragment_history, null);
         /*hListView = (HorizontalListView)view.findViewById(R.id.horizon_listview);*/
         final String[] titles = {"Mon", "Tues", "Wed", "Thur", "Fri", "Sat", "Sun"};
         final String[] num = {"1", "2", "3", "4" ,"5", "6" , "7"};
@@ -75,7 +75,7 @@ public class History extends  Fragment implements View.OnClickListener {
         * */
         updateList();
         adapter.notifyDataSetChanged();
-    return view;
+        return view;
     }
 
     @Override
@@ -120,7 +120,7 @@ public class History extends  Fragment implements View.OnClickListener {
             map.put("time", TimeUtils.times((String)Datamap.get("time")));
             map.put("status", "正常");
             if(postion.contains("光照"))
-            map.put("info",Datamap.get(sensor)+"LX");
+                map.put("info",Datamap.get(sensor)+"LX");
             else if(postion.contains("水份")||postion.contains("湿度"))
                 map.put("info",Datamap.get(sensor)+"%");
             else if(postion.contains("温度"))

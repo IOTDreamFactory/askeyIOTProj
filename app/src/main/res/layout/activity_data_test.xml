@@ -12,6 +12,13 @@
         android:text="auto"
         android:id="@+id/button_auto"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Back"
+        android:id="@+id/button_back"
+/>
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,10 +64,4 @@
         android:id="@+id/button_accept"
         android:text="@string/Accept" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Back"
-        android:id="@+id/button_back"
-/>
 </LinearLayout>

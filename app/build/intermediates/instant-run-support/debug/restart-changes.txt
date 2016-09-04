@@ -1,0 +1,2 @@
+CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\iotdf\iotgateway\DeviceFragments\Chart.class
+CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\iotdf\iotgateway\DeviceFragments\Chart$ValueTouchListener.class

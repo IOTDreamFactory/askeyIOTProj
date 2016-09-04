@@ -4,40 +4,38 @@
     api-level="21"
     density="mdpi"
     format="7"
-    timestamp="16573398760760"
-    token="1030569266767423042" >
+    timestamp="14149903030479"
+    token="1030569266767423042"
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="193" />
+        duration="342" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="466" />
     <task
         name="instant-run-transform"
-        duration="12" />
+        duration="17" />
     <task
         name="verifier"
         duration="1" />
 
     <artifact
-        location="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
-        type="DEX" />
+        location="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\reload-dex\debug\classes.dex"
+        type="RELOAD_DEX" />
 
-    <build timestamp="15415946034051" >
+    <build
+        timestamp="14027433716414"
+        verifier="METHOD_DELETED" >
+        <artifact
+            location="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_9\classes.dex"
+            type="DEX" />
+    </build>
+    <build timestamp="23459332362437" >
         <artifact
             location="E:\AndroidStudioProjects\IOTGateway\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
-    </build>
-    <build timestamp="16496830683643" >
-        <artifact
-            location="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\res\resources-debug.ap_"
-            type="RESOURCES" />
-    </build>
-    <build timestamp="16573398760760" >
-        <artifact
-            location="E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
-            type="DEX" />
     </build>
 
 </instant-run>

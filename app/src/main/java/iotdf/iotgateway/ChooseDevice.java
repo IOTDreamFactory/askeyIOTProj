@@ -3,7 +3,6 @@ package iotdf.iotgateway;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -33,7 +32,6 @@ import iotdf.iotgateway.data.DataTest;
 public class ChooseDevice extends Activity implements View.OnClickListener {
     private AnimatedExpandableListView listView;
     private XRefreshView xRefreshView;
-    private Resources resources;
     public static long lastRefreshTime;
     private Button B_DataTest;
     private BoomMenuButton boomMenuButton;
