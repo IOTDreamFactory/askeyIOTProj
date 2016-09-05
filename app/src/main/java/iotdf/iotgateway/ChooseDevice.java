@@ -1,6 +1,5 @@
 package iotdf.iotgateway;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -26,10 +25,11 @@ import com.nightonke.boommenu.Util;
 
 import java.util.ArrayList;
 
+import iotdf.iotgateway.RestComponents.MyBaseActivity;
 import iotdf.iotgateway.data.DataService;
 import iotdf.iotgateway.data.DataTest;
 
-public class ChooseDevice extends Activity implements View.OnClickListener {
+public class ChooseDevice extends MyBaseActivity implements View.OnClickListener {
     private AnimatedExpandableListView listView;
     private XRefreshView xRefreshView;
     public static long lastRefreshTime;
