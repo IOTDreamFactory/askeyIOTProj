@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DevicePanel">
+<item
+    android:icon="@drawable/calendar"
+    android:id="@+id/calendar"
+    android:title="选择日期"
+    android:showAsAction="ifRoom"/>
+</menu>

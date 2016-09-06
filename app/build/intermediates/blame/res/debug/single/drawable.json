@@ -24,6 +24,10 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\ico_control.png"
     },
     {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\calendar.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\calendar.png"
+    },
+    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\sign_button.png",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\sign_button.png"
     },
@@ -320,6 +324,10 @@
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\drawable\\abc_btn_radio_material.xml"
     },
     {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\back_e8.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\back_e8.png"
+    },
+    {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\login_button_click.png",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\login_button_click.png"
     },
@@ -402,6 +410,10 @@
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\con_info.png",
         "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\con_info.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\time.png",
+        "source": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\drawable\\time.png"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\IOTGateway\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",

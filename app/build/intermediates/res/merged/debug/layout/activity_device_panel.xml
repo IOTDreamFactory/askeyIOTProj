@@ -5,6 +5,8 @@
     android:orientation="vertical"
     android:fitsSystemWindows="true"
     android:background="@color/color81a8b8">
+
+
     <include layout="@layout/toolbar"/>
 
     <com.astuetz.PagerSlidingTabStrip

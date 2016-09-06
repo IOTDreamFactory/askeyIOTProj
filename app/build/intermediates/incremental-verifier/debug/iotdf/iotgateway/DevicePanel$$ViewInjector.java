@@ -13,6 +13,33 @@ public class DevicePanel$$ViewInjector {
     target.tabs = (com.astuetz.PagerSlidingTabStrip) view;
     view = finder.findRequiredView(source, 2131558570, "field 'pager'");
     target.pager = (android.support.v4.view.ViewPager) view;
+    view = finder.findRequiredView(source, 2131558631, "method 'onClick'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.onClick(p0);
+        }
+      });
+    view = finder.findRequiredView(source, 2131558609, "method 'onClick'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.onClick(p0);
+        }
+      });
+    view = finder.findRequiredView(source, 2131558549, "method 'onClick'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.onClick(p0);
+        }
+      });
   }
 
   public static void reset(iotdf.iotgateway.DevicePanel target) {

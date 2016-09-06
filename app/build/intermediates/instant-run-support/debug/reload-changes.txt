@@ -1,3 +1,3 @@
 CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class
 CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\iotdf\iotgateway\ControlPanel$override.class
-CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\iotdf\iotgateway\DevicePanel$override.class
+CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\iotdf\iotgateway\DeviceFragments\InputFrag$override.class

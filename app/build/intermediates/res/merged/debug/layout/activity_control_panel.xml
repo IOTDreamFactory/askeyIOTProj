@@ -124,6 +124,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="上传间隔"
+        android:textColor="@color/color81a8b8"
         android:id="@+id/tv_time"
         android:layout_alignBottom="@+id/tv_swich"
         android:layout_alignStart="@+id/tv_brightnessControl" />

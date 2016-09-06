@@ -15131,6 +15131,48 @@
                         "endOffset": 18644
                     }
                 }
+            },
+            {
+                "to": {
+                    "startLine": 2453,
+                    "startColumn": 4,
+                    "startOffset": 207019,
+                    "endLine": 2473,
+                    "endColumn": 12,
+                    "endOffset": 208448
+                },
+                "from": {
+                    "file": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 828,
+                        "endLine": 43,
+                        "endColumn": 12,
+                        "endOffset": 2277
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 2474,
+                    "startColumn": 4,
+                    "startOffset": 208453,
+                    "endLine": 2491,
+                    "endColumn": 12,
+                    "endOffset": 209557
+                },
+                "from": {
+                    "file": "E:\\AndroidStudioProjects\\IOTGateway\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 44,
+                        "startColumn": 4,
+                        "startOffset": 2283,
+                        "endLine": 61,
+                        "endColumn": 12,
+                        "endOffset": 3404
+                    }
+                }
             }
         ]
     }

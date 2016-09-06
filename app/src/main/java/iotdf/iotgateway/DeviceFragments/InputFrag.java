@@ -37,7 +37,7 @@ public class InputFrag extends android.support.v4.app.DialogFragment {
         // Pass null as the parent view because its going in the dialog layout
         builder.setView(view)
                 // Add action buttons
-                .setPositiveButton("send",
+                .setPositiveButton("确定",
                         new DialogInterface.OnClickListener()
                         {
                             @Override
@@ -47,7 +47,7 @@ public class InputFrag extends android.support.v4.app.DialogFragment {
                                 listener.onInputComplete(inputValue
                                         .getText().toString());
                             }
-                        }).setNegativeButton("Cancel", null);
+                        }).setNegativeButton("取消", null);
         return builder.create();
     }
 }

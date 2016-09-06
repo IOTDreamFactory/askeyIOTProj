@@ -1,5 +1,6 @@
 package iotdf.iotgateway;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -7,13 +8,22 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.rey.material.app.DatePickerDialog;
+import com.rey.material.app.Dialog;
+import com.rey.material.app.DialogFragment;
+import com.rey.material.app.ThemeManager;
+import com.rey.material.app.TimePickerDialog;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 import iotdf.iotgateway.DeviceFragments.Chart;
 import iotdf.iotgateway.DeviceFragments.History;
 
@@ -49,6 +59,62 @@ public class DevicePanel extends ActionBarActivity {
                 ) {
             str=str+","+Pos;
         }
+
+    }
+    @OnClick({R.id.calendar,R.id.time,R.id.back})
+    public void onClick(View view)
+    {
+        Dialog.Builder builder = null;
+        boolean isLightTheme = ThemeManager.getInstance().getCurrentTheme() == 0;
+        switch (view.getId()){
+            case R.id.calendar:
+
+                builder = new DatePickerDialog.Builder(R.style.mDatePicker){
+                    @Override
+                    public void onPositiveActionClicked(DialogFragment fragment) {
+                        DatePickerDialog dialog = (DatePickerDialog)fragment.getDialog();
+                        String date = dialog.getFormattedDate(SimpleDateFormat.getDateInstance());
+                        Toast.makeText(DevicePanel.this, "Date is " + date, Toast.LENGTH_SHORT).show();
+                        super.onPositiveActionClicked(fragment);
+                    }
+
+                    @Override
+                    public void onNegativeActionClicked(DialogFragment fragment) {
+                        Toast.makeText(DevicePanel.this, "Cancelled" , Toast.LENGTH_SHORT).show();
+                        super.onNegativeActionClicked(fragment);
+                    }
+                };
+
+                builder.positiveAction("OK")
+                        .negativeAction("CANCEL");
+
+                break;
+            case R.id.back:
+                Intent intent=new Intent(DevicePanel.this,ChooseDevice.class);
+                startActivity(intent);
+                break;
+            case R.id.time:
+                builder = new TimePickerDialog.Builder( R.style.mTimePicker_Light,24,00){
+                    @Override
+                    public void onPositiveActionClicked(DialogFragment fragment) {
+                        TimePickerDialog dialog = (TimePickerDialog)fragment.getDialog();
+                        Toast.makeText(DevicePanel.this, "Time is " + dialog.getFormattedTime(SimpleDateFormat.getTimeInstance()), Toast.LENGTH_SHORT).show();
+                        super.onPositiveActionClicked(fragment);
+                    }
+
+                    @Override
+                    public void onNegativeActionClicked(DialogFragment fragment) {
+                        Toast.makeText(DevicePanel.this, "Cancelled" , Toast.LENGTH_SHORT).show();
+                        super.onNegativeActionClicked(fragment);
+                    }
+                };
+
+                builder.positiveAction("OK")
+                        .negativeAction("CANCEL");
+                break;
+        }
+        DialogFragment fragment = DialogFragment.newInstance(builder);
+        fragment.show(getSupportFragmentManager(), null);
     }
     public class MyPagerAdapter extends FragmentPagerAdapter {
 
