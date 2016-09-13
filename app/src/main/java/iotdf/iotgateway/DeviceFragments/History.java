@@ -19,8 +19,7 @@ import iotdf.iotgateway.R;
 import iotdf.iotgateway.data.DataService;
 
 public class History extends  Fragment implements View.OnClickListener {
-    /*HorizontalListView hListView;
-    HorizontalListViewAdapter hListViewAdapter;*/
+
     ListView nlistView;
     View view;
     View olderSelectView = null;
@@ -46,24 +45,6 @@ public class History extends  Fragment implements View.OnClickListener {
             sensor="humidity";
         if(view==null)
             view = inflater.inflate(R.layout.fragment_history, null);
-        /*hListView = (HorizontalListView)view.findViewById(R.id.horizon_listview);*/
-        final String[] titles = {"Mon", "Tues", "Wed", "Thur", "Fri", "Sat", "Sun"};
-        final String[] num = {"1", "2", "3", "4" ,"5", "6" , "7"};
-        final TextView previewText = (TextView)view.findViewById(R.id.text_preview);
-       /* hListViewAdapter = new HorizontalListViewAdapter(getContext(),titles,num);
-        hListViewAdapter.setSelectIndex(0);
-        hListView.setAdapter(hListViewAdapter);
-        //hListView.setSelection(1);
-        hListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                previewText.setText(titles[position]);
-                hListViewAdapter.setSelectIndex(position);
-                hListViewAdapter.notifyDataSetChanged();
-            }
-        });*/
 
         nlistView = (ListView)view.findViewById(R.id.historyList);
         SimpleAdapter adapter = new SimpleAdapter(view.getContext(),getData(),R.layout.history_list,
@@ -71,8 +52,7 @@ public class History extends  Fragment implements View.OnClickListener {
                 new int[]{R.id.time,R.id.status,R.id.info});
         nlistView.setAdapter(adapter);
 
-        /* This fucking UPDATE has no function...
-        * */
+
         updateList();
         adapter.notifyDataSetChanged();
         return view;
@@ -126,7 +106,6 @@ public class History extends  Fragment implements View.OnClickListener {
             else if(postion.contains("温度"))
                 map.put("info",Datamap.get(sensor)+"℃");
             System.out.println(Datamap.get("time")+" "+Datamap.get(sensor));
-            System.out.println(TimeUtils.times("1470485990103"));
             list.add(map);
         }
 

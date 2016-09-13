@@ -4,8 +4,8 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
@@ -15,9 +15,13 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
+import java.util.ArrayList;
+import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+
+import iotdf.iotgateway.data.DataService;
 
 /**
  * Created by hh123 on 2016/7/4.
@@ -28,12 +32,15 @@ public class Myservice extends Service {
     String passWord = "password";
     String pub;
     String sub;
+    String TAG=null;
     Message msg = new Message();
     private Handler handler;
     private MqttClient client;
-    String myTopic = "test/topic";
+    String myTopic = "test";
     private MqttConnectOptions options;
     private ScheduledExecutorService scheduler;
+
+
     public void onCreate() {
         super.onCreate();
     }
@@ -46,7 +53,7 @@ public class Myservice extends Service {
                         connect();
                     }
                 }
-            }, 0 * 1000, 10 * 1000, TimeUnit.MILLISECONDS);
+            }, 30 * 1000, 31 * 1000, TimeUnit.MILLISECONDS);
         }
         private void init() {
             try {
@@ -111,29 +118,45 @@ public class Myservice extends Service {
                     try {
                         client.connect(options);;
                         msg.what = 2;
+//                        handler.sendMessage(msg);
+                        if(handler.obtainMessage(msg.what, msg.obj) != null){
+                            Message _msg = new Message();
+                            _msg.what = msg.what;
+                            _msg.obj= msg.obj;
+                            msg = _msg;
+//			return;
+                        }
                         handler.sendMessage(msg);
                     } catch (Exception e) {
                         e.printStackTrace();
                         msg.what = 3;
+                        if(handler.obtainMessage(msg.what, msg.obj) != null){
+                            Message _msg = new Message();
+                            _msg.what = msg.what;
+                            _msg.obj= msg.obj;
+                            msg = _msg;
+//			return;
+                        }
                         handler.sendMessage(msg);
                     }
                 }
             }).start();
         }
-     /*   public boolean onKeyDown(int keyCode, KeyEvent event) {
-            if(client != null && keyCode == KeyEvent.KEYCODE_BACK) {
-                try {
-                    client.disconnect();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return super.onKeyDown(keyCode, event);
-        }*/
+    public void MyMethod(){
+        Log.i(TAG, "BindService-->MyMethod()");
+    }
     @Override
     public int onStartCommand(final Intent intent, int flags, int startId) {
-        host=intent.getStringExtra("host");
-        pub =intent.getStringExtra("pub");
+//        host=intent.getStringExtra("host");
+        host="tcp://218.199.150.207:1883";
+//        pub =intent.getStringExtra("pub");
+//        测试
+        DataService mDataService=new DataService(Myservice.this);
+        ArrayList<Map> HistoryList=mDataService.updateData("传感器1",mDataService.getLastUDTime(this));
+        mDataService.setLastUDTime(this);
+        pub=HistoryList.toString();
+//        pub= "test1";
+        //        测试
         init();
         handler = new Handler(){                             //重写handlermessage 从线程传来数据
             @Override
@@ -153,7 +176,7 @@ public class Myservice extends Service {
                    // }).start();
                     System.out.println("-----------------------------");
                 } else if(msg.what == 2) {
-                    Handler h=new Handler(Looper.getMainLooper());
+                    System.out.println(" has connect");
                  //   Toast.makeText(Myservice.this, "连接成功", Toast.LENGTH_SHORT).show();
                     try {
                         client.subscribe(myTopic, 1);//接受
@@ -163,13 +186,15 @@ public class Myservice extends Service {
                     if(pub!=null) {
                         try {
                             client.publish(myTopic, pub.getBytes(), 1, false);//发送
+//                            int i=1;
+//                            isArrival(i);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
                 } else if(msg.what == 3) {
                     //Toast.makeText(Myservice.this, "连接失败，系统正在重连", Toast.LENGTH_SHORT).show();
-                    connect();
+                System.out.println("failed");
                 }
             }
         };
@@ -181,13 +206,25 @@ public class Myservice extends Service {
         public void onDestroy() {
             super.onDestroy();
             try {
-                scheduler.shutdown();
+               // scheduler.shutdown();
                 client.disconnect();
             } catch (MqttException e) {
                 e.printStackTrace();
             }
         }
+//    public boolean isArrival(int arrivestatus){
+//        if(arrivestatus==1)
+//        {
+//            return true;
+//        }
+//        return false;
+//    }
     public IBinder onBind(Intent intent) {
         return null;
     }
+//    public class MyBinder extends Binder{
+//        public Myservice getservice(){
+//            return  Myservice.this;
+//        }
+//    }
 }

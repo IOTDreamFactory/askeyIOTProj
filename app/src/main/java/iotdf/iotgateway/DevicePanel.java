@@ -28,12 +28,9 @@ import iotdf.iotgateway.DeviceFragments.Chart;
 import iotdf.iotgateway.DeviceFragments.History;
 
 public class DevicePanel extends ActionBarActivity {
-    @InjectView(R.id.toolbar)
-    Toolbar toolbar;
-    @InjectView(R.id.tabs)
-    PagerSlidingTabStrip tabs;
-    @InjectView(R.id.pager)
-    ViewPager pager;
+    @InjectView(R.id.toolbar) Toolbar toolbar;
+    @InjectView(R.id.tabs) PagerSlidingTabStrip tabs;
+    @InjectView(R.id.pager) ViewPager pager;
     private String str=new String();
     private MyPagerAdapter myPagerAdapter;
     @Override

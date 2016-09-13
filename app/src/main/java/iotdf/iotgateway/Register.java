@@ -2,6 +2,7 @@ package iotdf.iotgateway;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -15,6 +16,9 @@ import iotdf.iotgateway.user.User;
 import iotdf.iotgateway.user.UserService;
 
 public class Register extends AppCompatActivity {
+    public interface UsernameListener{
+        void getUsername(String username);
+    }
     private EditText UserName;
     private EditText PWD;
     private ImageButton Submit;
@@ -46,6 +50,10 @@ public class Register extends AppCompatActivity {
                     user.setUsername(UserName.getText().toString());
                     user.setPassword(PWD.getText().toString());
                     uService.register(user);
+                    SharedPreferences preferences=getSharedPreferences("name", MODE_PRIVATE);
+                    SharedPreferences.Editor editor=preferences.edit();
+                    editor.putString("username",UserName.getText().toString());
+                    editor.commit();
                     Intent=new Intent(Register.this,MainActivity.class);
                     startActivity(Intent);
                     finish();

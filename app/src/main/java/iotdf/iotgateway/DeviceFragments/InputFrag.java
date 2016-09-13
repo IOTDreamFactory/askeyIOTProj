@@ -47,7 +47,8 @@ public class InputFrag extends android.support.v4.app.DialogFragment {
                                 listener.onInputComplete(inputValue
                                         .getText().toString());
                             }
-                        }).setNegativeButton("取消", null);
+                        })
+                .setNegativeButton("取消", null);
         return builder.create();
     }
 }

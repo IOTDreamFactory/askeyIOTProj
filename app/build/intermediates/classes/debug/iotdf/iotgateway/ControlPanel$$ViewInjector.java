@@ -7,25 +7,7 @@ import butterknife.ButterKnife.Finder;
 public class ControlPanel$$ViewInjector {
   public static void inject(Finder finder, final iotdf.iotgateway.ControlPanel target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131558549, "method 'onclick'");
-    view.setOnClickListener(
-      new butterknife.internal.DebouncingOnClickListener() {
-        @Override public void doClick(
-          android.view.View p0
-        ) {
-          target.onclick(p0);
-        }
-      });
-    view = finder.findRequiredView(source, 2131558554, "method 'onclick'");
-    view.setOnClickListener(
-      new butterknife.internal.DebouncingOnClickListener() {
-        @Override public void doClick(
-          android.view.View p0
-        ) {
-          target.onclick(p0);
-        }
-      });
-    view = finder.findRequiredView(source, 2131558555, "method 'onclick'");
+    view = finder.findRequiredView(source, 2131558551, "method 'onclick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -44,6 +26,24 @@ public class ControlPanel$$ViewInjector {
         }
       });
     view = finder.findRequiredView(source, 2131558557, "method 'onclick'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.onclick(p0);
+        }
+      });
+    view = finder.findRequiredView(source, 2131558558, "method 'onclick'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.onclick(p0);
+        }
+      });
+    view = finder.findRequiredView(source, 2131558559, "method 'onclick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(

@@ -19,49 +19,16 @@
         android:id="@+id/button_back"
 />
 
-    <EditText
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/arduinoNum"
-        android:id="@+id/ET_arduinoNum"
-        android:layout_marginBottom="23dp" />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/time"
-        android:id="@+id/ET_Time"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/humidity"
-        android:id="@+id/ET_Humidity" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/temperature"
-        android:id="@+id/ET_Temperature"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/water"
-        android:id="@+id/ET_Water"
-        android:layout_marginTop="33dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/brightness"
-        android:id="@+id/ET_Brightness"
-        android:layout_marginBottom="36dp" />
-
+        android:text="TESTstart"
+        android:id="@+id/button_start" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_accept"
-        android:text="@string/Accept" />
+        android:text="killService"
+        android:id="@+id/button_kill" />
 
 </LinearLayout>

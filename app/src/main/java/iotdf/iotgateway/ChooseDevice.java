@@ -20,11 +20,13 @@ import com.andview.refreshview.XRefreshView;
 import com.nightonke.boommenu.BoomMenuButton;
 import com.nightonke.boommenu.Types.BoomType;
 import com.nightonke.boommenu.Types.ButtonType;
+import com.nightonke.boommenu.Types.DimType;
 import com.nightonke.boommenu.Types.PlaceType;
 import com.nightonke.boommenu.Util;
 
 import java.util.ArrayList;
 
+import iotdf.iotgateway.DeviceFragments.statusFrag;
 import iotdf.iotgateway.RestComponents.MyBaseActivity;
 import iotdf.iotgateway.data.DataService;
 import iotdf.iotgateway.data.DataTest;
@@ -128,40 +130,56 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-
-        // Use a param to record whether the boom button has been initialized
-        // Because we don't need to init it again when onResume()
-        Drawable[] subButtonDrawables = new Drawable[3];
-        int[] drawablesResource = new int[]{
-                R.drawable.boom,
-                R.drawable.java,
-                R.drawable.github
-        };
-        for (int i = 0; i < 3; i++)
-            subButtonDrawables[i] = ContextCompat.getDrawable(this, drawablesResource[i]);
-
-        String[] subButtonTexts = new String[]{"BoomMenuButton", "View source code", "Follow me"};
-
         int[][] subButtonColors = new int[3][2];
+        Drawable[] drawables={ContextCompat.getDrawable(this, R.drawable.logout),ContextCompat.getDrawable(this, R.drawable.viewfixed),ContextCompat.getDrawable(this, R.drawable.download)};
         for (int i = 0; i < 3; i++) {
-            subButtonColors[i][1] = ContextCompat.getColor(this, R.color.colore8f3f8);
+            subButtonColors[i][1] = ContextCompat.getColor(this, R.color.color81a8b8);
             subButtonColors[i][0] = Util.getInstance().getPressedColor(subButtonColors[i][1]);
         }
 
         // Now with Builder, you can init BMB more convenient
         new BoomMenuButton.Builder()
-                .addSubButton(ContextCompat.getDrawable(this, R.drawable.boom), subButtonColors[0], "BoomMenuButton")
-                .addSubButton(ContextCompat.getDrawable(this, R.drawable.java), subButtonColors[0], "View source code")
-                .addSubButton(ContextCompat.getDrawable(this, R.drawable.github), subButtonColors[0], "Follow me")
-                .button(ButtonType.CIRCLE)
-                .boom(BoomType.PARABOLA)
-                .place(PlaceType.CIRCLE_3_1)
-                .subButtonTextColor(ContextCompat.getColor(this, R.color.colore8f3f8))
+                .dim(DimType.DIM_9)
+                .subButtonTextColor(ContextCompat.getColor(this, R.color.color81a8b8))
                 .subButtonsShadow(Util.getInstance().dp2px(2), Util.getInstance().dp2px(2))
-                .init(boomMenuButton);
+                .addSubButton(drawables[0], subButtonColors[0], "注销账号")
+                .addSubButton(drawables[1], subButtonColors[0], "查看状态")
+                .addSubButton(drawables[2], subButtonColors[0], "获取数据")
+                .button(ButtonType.HAM)
+                .boom(BoomType.PARABOLA)
+                .place(PlaceType.HAM_3_1)
+                .init(boomMenuButton)
+                .setOnSubButtonClickListener(new BoomMenuButton.OnSubButtonClickListener(){
+                    @Override
+                    public void onClick(int buttonIndex){
+                        if(buttonIndex==0){
+                            Intent intent0=new Intent(ChooseDevice.this,MainActivity.class);
+                            startActivity(intent0);
+                            finish();
+                        }
+                        else if(buttonIndex==1){
+                            statusFrag statusFrag=new statusFrag();
+                            statusFrag.show(getFragmentManager(),"status");
+                        }
+                    }
+                });
     }
 
-
+/*    private String[] Colors = {
+            "#92aed3",
+            "#5587c0",
+            "#375069",
+            "#3e5a98",
+            "#3c3c3c",
+            "#81a8b8",
+            "#e8f3f8",
+            "#c2cbce",
+            "#dbe6ec"};
+    public int GetRandomColor() {
+        Random random = new Random();
+        int p = random.nextInt(Colors.length);
+        return Color.parseColor(Colors[p]);
+    }*/
     @Override
     public void onClick(View view) {
         switch (view.getId()){
