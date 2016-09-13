@@ -7,11 +7,21 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import iotdf.iotgateway.ConServ.ServerRequest;
 import iotdf.iotgateway.user.User;
 import iotdf.iotgateway.user.UserService;
 
@@ -26,6 +36,8 @@ public class Register extends AppCompatActivity {
     private Context context;
     private android.content.Intent Intent;
     private int flag=0;
+    List<NameValuePair> params;
+    String RegisterURL="http://10.0.2.2:8080/register";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +57,24 @@ public class Register extends AppCompatActivity {
         public void onClick(View v){
             switch (v.getId()){
                 case R.id.ImageButton_submit:
+                    params = new ArrayList<NameValuePair>();
+                    params.add(new BasicNameValuePair("username", UserName.getText().toString()));
+                    params.add(new BasicNameValuePair("password", PWD.getText().toString()));
+                    ServerRequest sr = new ServerRequest();
+                    JSONObject json = sr.getJSON(RegisterURL,params);
+                    //JSONObject json = sr.getJSON("http://192.168.56.1:8080/register",params);
+
+                    if(json != null){
+                        try{
+                            String jsonstr = json.getString("response");
+
+                            Toast.makeText(getApplication(),jsonstr,Toast.LENGTH_LONG).show();
+
+                            Log.d("Hello", jsonstr);
+                        }catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
                     UserService uService=new UserService(Register.this);
                     User user=new User();
                     user.setUsername(UserName.getText().toString());

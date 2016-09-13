@@ -9,9 +9,17 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import iotdf.iotgateway.ConSens.LocalService;
+import iotdf.iotgateway.ConServ.ServerRequest;
 import iotdf.iotgateway.RestComponents.MyBaseActivity;
-import iotdf.iotgateway.user.UserService;
 
 public class MainActivity extends MyBaseActivity implements View.OnClickListener, iotdf.iotgateway.Register.UsernameListener {
     
@@ -28,6 +36,9 @@ public class MainActivity extends MyBaseActivity implements View.OnClickListener
     private String mDeviceID;
     private Bundle bundle;
     private String getUsername=null;
+    List<NameValuePair> params;
+    SharedPreferences pref;
+    String LoginURL="http://10.0.2.2:8080/login";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,24 +71,56 @@ public class MainActivity extends MyBaseActivity implements View.OnClickListener
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_login:
-                UserService uService=new UserService(MainActivity.this);
-                boolean flag=uService.login(UserName.getText().toString(), PWD.getText().toString());
-                //判断用户输入的用户名和密码是否与设置的值相同,必须要有toString()
-                if(flag){
-                    System.out.println("你点击了按钮");
-                    //创建Intent对象，传入源Activity和目的Activity的类对象
-                    Intent = new Intent(MainActivity.this, ChooseDevice.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Username",UserName.getText().toString());
-                    Intent.putExtras(bundle);
-                    //Intent.putExtra("Username",UserName.getText());
-                    //启动Activity
+                params = new ArrayList<NameValuePair>();
+                params.add(new BasicNameValuePair("username", UserName.getText().toString()));
+                params.add(new BasicNameValuePair("password", PWD.getText().toString()));
+                ServerRequest sr = new ServerRequest();
+                JSONObject json = sr.getJSON(LoginURL,params);
+                if(json != null) {
+                    try {
+                        String jsonstr = json.getString("response");
+                        if (json.getBoolean("res")) {
+                            String token = json.getString("token");
+                            String grav = json.getString("grav");
+                            SharedPreferences.Editor edit = pref.edit();
+                            //Storing Data using SharedPreferences
+                            edit.putString("token", token);
+                            edit.putString("grav", grav);
+                            edit.commit();
+                            Intent intent = new Intent(MainActivity.this, ChooseDevice.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString("Username",UserName.getText().toString());
+                            intent.putExtras(bundle);
+                            startActivity(intent);
+                            finish();
+                        }
 
-                    startActivity(Intent);
-                    finish();
-                }else{
-                    //登录信息错误，通过Toast显示提示信息
-                    Toast.makeText(MainActivity.this,"用户登录信息错误" , Toast.LENGTH_SHORT).show();}
+                        Toast.makeText(getApplication(), jsonstr, Toast.LENGTH_LONG).show();
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+//                UserService uService=new UserService(MainActivity.this);
+//                boolean flag=uService.login(UserName.getText().toString(), PWD.getText().toString());
+//                //判断用户输入的用户名和密码是否与设置的值相同,必须要有toString()
+//                if(flag){
+//                    System.out.println("你点击了按钮");
+//                    //创建Intent对象，传入源Activity和目的Activity的类对象
+//                    Intent = new Intent(MainActivity.this, ChooseDevice.class);
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString("Username",UserName.getText().toString());
+//                    Intent.putExtras(bundle);
+//                    //Intent.putExtra("Username",UserName.getText());
+//                    //启动Activity
+//
+//                    startActivity(Intent);
+//                    finish();
+//                }else{
+//                    //登录信息错误，通过Toast显示提示信息
+//                    Toast.makeText(MainActivity.this,"用户登录信息错误" , Toast.LENGTH_SHORT).show();
+//                }
+//                }
                 break;
             case R.id.button_register:
                 Intent=new Intent(MainActivity.this,Register.class);
