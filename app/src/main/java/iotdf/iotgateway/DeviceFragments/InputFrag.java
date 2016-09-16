@@ -30,7 +30,7 @@ public class InputFrag extends android.support.v4.app.DialogFragment {
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         // Get the layout inflater
-        LayoutInflater inflater = LayoutInflater.from(getContext());
+        LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.fragment_input, null);
         inputValue = (EditText) view.findViewById(R.id.id_ED_inputvalue);
         // Inflate and set the layout for the dialog
@@ -43,9 +43,8 @@ public class InputFrag extends android.support.v4.app.DialogFragment {
                             @Override
                             public void onClick(DialogInterface dialog, int id)
                             {
-                                inputListener listener = (inputListener) getParentFragment();
-                                listener.onInputComplete(inputValue
-                                        .getText().toString());
+                                inputListener listener = (inputListener) getActivity();
+                                listener.onInputComplete(inputValue.getText().toString());
                             }
                         })
                 .setNegativeButton("取消", null);

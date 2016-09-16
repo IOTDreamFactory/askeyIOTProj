@@ -38,7 +38,7 @@ public class MainActivity extends MyBaseActivity implements View.OnClickListener
     private String getUsername=null;
     List<NameValuePair> params;
     SharedPreferences pref;
-    String LoginURL="http://10.0.2.2:8080/login";
+    String LoginURL="http://218.199.150.207:8080/login";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,14 +79,14 @@ public class MainActivity extends MyBaseActivity implements View.OnClickListener
                 if(json != null) {
                     try {
                         String jsonstr = json.getString("response");
-                        if (json.getBoolean("res")) {
-                            String token = json.getString("token");
-                            String grav = json.getString("grav");
-                            SharedPreferences.Editor edit = pref.edit();
-                            //Storing Data using SharedPreferences
-                            edit.putString("token", token);
-                            edit.putString("grav", grav);
-                            edit.commit();
+                        if (jsonstr!=null) {
+//                            String token = json.getString("token");
+//                            String grav = json.getString("grav");
+//                            SharedPreferences.Editor edit = pref.edit();
+//                            //Storing Data using SharedPreferences
+//                            edit.putString("token", token);
+//                            edit.putString("grav", grav);
+//                            edit.commit();
                             Intent intent = new Intent(MainActivity.this, ChooseDevice.class);
                             Bundle bundle = new Bundle();
                             bundle.putString("Username",UserName.getText().toString());

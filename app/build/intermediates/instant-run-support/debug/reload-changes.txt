@@ -1,0 +1,5 @@
+CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class
+CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\iotdf\iotgateway\Register$EditChangedListener$override.class
+CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\iotdf\iotgateway\Register$EditChangedListener2$override.class
+CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\iotdf\iotgateway\Register$1$override.class
+CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\iotdf\iotgateway\MainActivity$override.class

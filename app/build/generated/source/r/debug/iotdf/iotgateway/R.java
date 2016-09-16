@@ -5240,6 +5240,7 @@ containing a value of this type.
         public static final int ETpwd=0x7f0d00a9;
         public static final int ETusr=0x7f0d00a8;
         public static final int ImageButton_submit=0x7f0d00b2;
+        public static final int Sliderview=0x7f0d009b;
         public static final int TV_pwd=0x7f0d00af;
         public static final int TV_usr=0x7f0d00ad;
         public static final int action0=0x7f0d00d6;
@@ -5459,7 +5460,6 @@ containing a value of this type.
         public static final int up=0x7f0d0009;
         public static final int uri=0x7f0d0093;
         public static final int useLogo=0x7f0d001b;
-        public static final int view=0x7f0d009b;
         public static final int view_offset_helper=0x7f0d000a;
         public static final int wave=0x7f0d0055;
         public static final int withText=0x7f0d0050;

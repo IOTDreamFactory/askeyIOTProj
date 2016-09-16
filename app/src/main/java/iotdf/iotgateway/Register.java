@@ -37,7 +37,7 @@ public class Register extends AppCompatActivity {
     private android.content.Intent Intent;
     private int flag=0;
     List<NameValuePair> params;
-    String RegisterURL="http://10.0.2.2:8080/register";
+    String RegisterURL="http://218.199.150.207:8080/register";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +67,6 @@ public class Register extends AppCompatActivity {
                     if(json != null){
                         try{
                             String jsonstr = json.getString("response");
-
                             Toast.makeText(getApplication(),jsonstr,Toast.LENGTH_LONG).show();
 
                             Log.d("Hello", jsonstr);

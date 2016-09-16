@@ -1106,6 +1106,7 @@ int id ET_USR 0x7f0d00b0
 int id ETpwd 0x7f0d00a9
 int id ETusr 0x7f0d00a8
 int id ImageButton_submit 0x7f0d00b2
+int id Sliderview 0x7f0d009b
 int id TV_pwd 0x7f0d00af
 int id TV_usr 0x7f0d00ad
 int id action0 0x7f0d00d6
@@ -1325,7 +1326,6 @@ int id untilRelease 0x7f0d0057
 int id up 0x7f0d0009
 int id uri 0x7f0d0093
 int id useLogo 0x7f0d001b
-int id view 0x7f0d009b
 int id view_offset_helper 0x7f0d000a
 int id wave 0x7f0d0055
 int id withText 0x7f0d0050

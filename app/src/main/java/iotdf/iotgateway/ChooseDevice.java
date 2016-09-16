@@ -106,7 +106,14 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
                                         int groupPosition, int childPosition, long id) {
                 if(childPosition==4)
                 {
-                    Intent intent=new Intent(ChooseDevice.this,ControlPanel.class);
+                    Intent intent=new Intent();
+                    Bundle bundle=new Bundle();
+                    ArrayList position=new ArrayList();
+                    position.add(adapter.getGroup(groupPosition));
+                    position.add(adapter.getChild(groupPosition,childPosition));
+                    bundle.putParcelableArrayList("position",position);
+                    intent.putExtras(bundle);
+                    intent.setClass(ChooseDevice.this,ControlPanel.class);
                     startActivity(intent);
                 }
                 else

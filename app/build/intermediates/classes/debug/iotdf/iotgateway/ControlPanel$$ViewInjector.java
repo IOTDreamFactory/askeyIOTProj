@@ -7,6 +7,12 @@ import butterknife.ButterKnife.Finder;
 public class ControlPanel$$ViewInjector {
   public static void inject(Finder finder, final iotdf.iotgateway.ControlPanel target, Object source) {
     View view;
+    view = finder.findRequiredView(source, 2131558553, "field 'switchCompat'");
+    target.switchCompat = (android.support.v7.widget.SwitchCompat) view;
+    view = finder.findRequiredView(source, 2131558562, "field 'Tv_time'");
+    target.Tv_time = (android.widget.TextView) view;
+    view = finder.findRequiredView(source, 2131558555, "field 'slider'");
+    target.slider = (com.rey.material.widget.Slider) view;
     view = finder.findRequiredView(source, 2131558551, "method 'onclick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
@@ -55,5 +61,8 @@ public class ControlPanel$$ViewInjector {
   }
 
   public static void reset(iotdf.iotgateway.ControlPanel target) {
+    target.switchCompat = null;
+    target.Tv_time = null;
+    target.slider = null;
   }
 }

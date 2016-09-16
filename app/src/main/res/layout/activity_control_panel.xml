@@ -30,7 +30,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/switch1"
-
         android:layout_marginTop="70dp"
         android:layout_below="@+id/tv_reboot"
         android:layout_alignEnd="@+id/tv_reboot" />
@@ -46,7 +45,7 @@
         app:sl_primaryColor="@color/color81a8b8"
         app:sl_discreteMode="true"
         android:paddingBottom="10dp"
-        android:id="@+id/view"
+        android:id="@+id/Sliderview"
         android:layout_alignBottom="@+id/reboot"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="29dp" />
@@ -57,7 +56,7 @@
         android:id="@+id/imageButton"
         android:background="@drawable/tenmins"
         android:layout_alignTop="@+id/switch1"
-        android:layout_alignStart="@+id/view" />
+        android:layout_alignStart="@+id/Sliderview" />
 
     <ImageButton
         android:layout_width="wrap_content"
