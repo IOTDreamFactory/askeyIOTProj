@@ -58,6 +58,15 @@ public class ControlPanel$$ViewInjector {
           target.onclick(p0);
         }
       });
+    view = finder.findRequiredView(source, 2131558552, "method 'onclick'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.onclick(p0);
+        }
+      });
   }
 
   public static void reset(iotdf.iotgateway.ControlPanel target) {

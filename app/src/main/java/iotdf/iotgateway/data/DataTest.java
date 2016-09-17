@@ -22,6 +22,7 @@ public class DataTest extends AppCompatActivity implements View.OnClickListener 
     private Button ButtonKill;
     private String TAG=null;
     private Boolean flag;
+    private String username;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -43,6 +44,8 @@ public class DataTest extends AppCompatActivity implements View.OnClickListener 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+        Bundle bundle=this.getIntent().getExtras();
+        username=bundle.getString("Username");
     }
 
     @Override
@@ -62,7 +65,7 @@ public class DataTest extends AppCompatActivity implements View.OnClickListener 
 
                         data1.setBrightness((float) Math.random() * 100f + "");
                         data1.setHumidity((float) Math.random() * 100f + "");
-                        data1.setId("传感器" + j);
+                        data1.setId("传感节点" + j);
                         data1.setTemp((float) Math.random() * 100f + "");
                         data1.setTime(datetime + i);
                         data1.setWater((float) Math.random() * 100f + "");
@@ -71,7 +74,9 @@ public class DataTest extends AppCompatActivity implements View.OnClickListener 
                 }
                 break;
             case R.id.button_start:
-                Intent intent1 = new Intent(DataTest.this, Myservice.class);
+                Intent intent1 = new Intent();
+//                intent1.putExtra("Username",username);
+                intent1.setClass(DataTest.this, Myservice.class);
                 startService(intent1);
 //                bindService();
                 System.out.println("startService");

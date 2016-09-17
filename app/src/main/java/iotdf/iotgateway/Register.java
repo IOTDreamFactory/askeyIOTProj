@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import iotdf.iotgateway.ConServ.ServerRequest;
-import iotdf.iotgateway.user.User;
 import iotdf.iotgateway.user.UserService;
 
 public class Register extends AppCompatActivity {
@@ -74,11 +73,11 @@ public class Register extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
-                    UserService uService=new UserService(Register.this);
-                    User user=new User();
-                    user.setUsername(UserName.getText().toString());
-                    user.setPassword(PWD.getText().toString());
-                    uService.register(user);
+//                    UserService uService=new UserService(Register.this);
+//                    User user=new User();
+//                    user.setUsername(UserName.getText().toString());
+//                    user.setPassword(PWD.getText().toString());
+//                    uService.register(user);
                     SharedPreferences preferences=getSharedPreferences("name", MODE_PRIVATE);
                     SharedPreferences.Editor editor=preferences.edit();
                     editor.putString("username",UserName.getText().toString());

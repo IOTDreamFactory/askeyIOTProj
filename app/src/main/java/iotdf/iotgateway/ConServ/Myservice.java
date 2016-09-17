@@ -36,10 +36,15 @@ public class Myservice extends Service {
     Message msg = new Message();
     private Handler handler;
     private MqttClient client;
-    String myTopic = "test";
+    private String myTopic = "test";
     private MqttConnectOptions options;
     private ScheduledExecutorService scheduler;
 
+//    @Override
+//    public void onStart(Intent intent, int startId) {
+//        super.onStart(intent, startId);
+//        myTopic=intent.getStringExtra("Username");
+//    }
 
     public void onCreate() {
         super.onCreate();

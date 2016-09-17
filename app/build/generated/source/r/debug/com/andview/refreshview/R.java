@@ -26,18 +26,18 @@ public final class R {
 	}
 	public static final class id {
 		public static final int item_touch_helper_previous_elevation = 0x7f0d0005;
-		public static final int left_images = 0x7f0d00e9;
-		public static final int right_text = 0x7f0d00ed;
-		public static final int xrefreshview_footer_click_textview = 0x7f0d00e7;
-		public static final int xrefreshview_footer_content = 0x7f0d00e4;
-		public static final int xrefreshview_footer_hint_textview = 0x7f0d00e6;
-		public static final int xrefreshview_footer_progressbar = 0x7f0d00e5;
-		public static final int xrefreshview_header_arrow = 0x7f0d00ea;
-		public static final int xrefreshview_header_hint_textview = 0x7f0d00ee;
-		public static final int xrefreshview_header_ok = 0x7f0d00ec;
-		public static final int xrefreshview_header_progressbar = 0x7f0d00eb;
-		public static final int xrefreshview_header_text = 0x7f0d00e8;
-		public static final int xrefreshview_header_time = 0x7f0d00ef;
+		public static final int left_images = 0x7f0d00ea;
+		public static final int right_text = 0x7f0d00ee;
+		public static final int xrefreshview_footer_click_textview = 0x7f0d00e8;
+		public static final int xrefreshview_footer_content = 0x7f0d00e5;
+		public static final int xrefreshview_footer_hint_textview = 0x7f0d00e7;
+		public static final int xrefreshview_footer_progressbar = 0x7f0d00e6;
+		public static final int xrefreshview_header_arrow = 0x7f0d00eb;
+		public static final int xrefreshview_header_hint_textview = 0x7f0d00ef;
+		public static final int xrefreshview_header_ok = 0x7f0d00ed;
+		public static final int xrefreshview_header_progressbar = 0x7f0d00ec;
+		public static final int xrefreshview_header_text = 0x7f0d00e9;
+		public static final int xrefreshview_header_time = 0x7f0d00f0;
 	}
 	public static final class layout {
 		public static final int xrefreshview_footer = 0x7f04004e;

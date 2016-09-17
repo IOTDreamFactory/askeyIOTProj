@@ -1,10 +1,13 @@
 package iotdf.iotgateway;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -26,8 +29,10 @@ import com.nightonke.boommenu.Util;
 
 import java.util.ArrayList;
 
+import iotdf.iotgateway.ConSens.LocalService;
 import iotdf.iotgateway.DeviceFragments.statusFrag;
 import iotdf.iotgateway.RestComponents.MyBaseActivity;
+import iotdf.iotgateway.RestComponents.mathhelper;
 import iotdf.iotgateway.data.DataService;
 import iotdf.iotgateway.data.DataTest;
 
@@ -38,16 +43,23 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
     private Button B_DataTest;
     private BoomMenuButton boomMenuButton;
     private boolean init=false;
+    private LocalService mBoundService;
+    private String username;
+    private String[] arduinoNum={"000","001","010","011","100","101","110","111"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_device);
+        setContentView(R.layout.activity_choose_device);
+        Intent intent=new Intent(ChooseDevice.this,LocalService.class);
+        bindService(intent,mConnection, Context.BIND_AUTO_CREATE);
         Bundle bundle1 = this.getIntent().getExtras();
+        username=bundle1.getString("Username");
         boomMenuButton = (BoomMenuButton)findViewById(R.id.boom);
         B_DataTest=(Button)findViewById(R.id.Button_DataTest);
         B_DataTest.setOnClickListener(this);
         xRefreshView=(XRefreshView)findViewById(R.id.custom_view);
-        xRefreshView.setAutoRefresh(false);
+        xRefreshView.setAutoRefresh(true);
         xRefreshView.restoreLastRefreshTime(lastRefreshTime);
         xRefreshView.setXRefreshViewListener(new XRefreshView.XRefreshViewListener() {
 
@@ -61,6 +73,8 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
                         lastRefreshTime = xRefreshView.getLastRefreshTime();
                     }
                 }, 1000);
+//                Intent intent=new Intent(ChooseDevice.this,ChooseDevice.class);
+//                startActivity(intent);
             }
 
             @Override
@@ -167,11 +181,28 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
                         else if(buttonIndex==1){
                             statusFrag statusFrag=new statusFrag();
                             statusFrag.show(getFragmentManager(),"status");
+                        }else if(buttonIndex==2){
+                            for(int i=0;i<8;i++){
+                                try {
+                                    Thread.sleep(100);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                mBoundService.send(mathhelper.str2HexStr("101010"+arduinoNum[i]+"00000010000000000011011"));
+                            }
                         }
                     }
                 });
     }
 
+    private ServiceConnection mConnection = new ServiceConnection() {
+        public void onServiceConnected(ComponentName className, IBinder service) {
+            mBoundService = ((LocalService.LocalBinder)service).getService();
+        }
+        public void onServiceDisconnected(ComponentName className) {
+            mBoundService = null;
+        }
+    };
 /*    private String[] Colors = {
             "#92aed3",
             "#5587c0",
@@ -190,7 +221,12 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.Button_DataTest:Intent intent=new Intent(ChooseDevice.this, DataTest.class);
+            case R.id.Button_DataTest:
+                Intent intent=new Intent();
+                Bundle bundle=new Bundle();
+                bundle.putString("Username",username);
+                intent.putExtras(bundle);
+                intent.setClass(ChooseDevice.this, DataTest.class);
                 startActivity(intent);
                 break;
         }

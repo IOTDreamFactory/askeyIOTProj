@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SwitchCompat;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
@@ -23,6 +22,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import iotdf.iotgateway.ConSens.LocalService;
 import iotdf.iotgateway.DeviceFragments.InputFrag;
+import iotdf.iotgateway.RestComponents.mathhelper;
 
 public class ControlPanel extends AppCompatActivity implements InputFrag.inputListener ,Slider.OnPositionChangeListener, CompoundButton.OnCheckedChangeListener {
     private LocalService mBoundService;
@@ -62,7 +62,7 @@ public class ControlPanel extends AppCompatActivity implements InputFrag.inputLi
             case "7":arduinoNum="111";break;
         }
     }
-    @OnClick({R.id.back,R.id.imageButton,R.id.imageButton2,R.id.imageButton3,R.id.imageButton4})
+    @OnClick({R.id.back,R.id.imageButton,R.id.imageButton2,R.id.imageButton3,R.id.imageButton4,R.id.reboot})
     public void onclick(View view)
     {
         switch (view.getId()){
@@ -82,6 +82,10 @@ public class ControlPanel extends AppCompatActivity implements InputFrag.inputLi
             case R.id.imageButton4:
                 InputFrag dialog = new InputFrag();
                 dialog.show(getSupportFragmentManager(), "loginDialog");
+                break;
+            case R.id.reboot:
+                mBoundService.send(mathhelper.str2HexStr("101010"+arduinoNum+"00000100000000000011011"));
+                System.out.println("重启");
                 break;
         }
     }
@@ -110,22 +114,10 @@ public class ControlPanel extends AppCompatActivity implements InputFrag.inputLi
 
     private ServiceConnection mConnection = new ServiceConnection() {
         public void onServiceConnected(ComponentName className, IBinder service) {
-            // This is called when the connection with the service has been
-            // established, giving us the service object we can use to
-            // interact with the service.  Because we have bound to a explicit
-            // service that we know is running in our own process, we can
-            // cast its IBinder to a concrete class and directly access it.
             mBoundService = ((LocalService.LocalBinder)service).getService();
-            // Tell the user about this for our demo.
-
         }
         public void onServiceDisconnected(ComponentName className) {
-            // This is called when the connection with the service has been
-            // unexpectedly disconnected -- that is, its process crashed.
-            // Because it is running in our same process, we should never
-            // see this happen.
             mBoundService = null;
-
         }
     };
 
@@ -154,104 +146,4 @@ public class ControlPanel extends AppCompatActivity implements InputFrag.inputLi
             toast3.show();
         }
     }
-}
-class mathhelper
-{
-    public static String str2HexStr(String integer) {
-        StringBuffer integerSum = new StringBuffer();
-        int loop = 0; // 循环次数
-        if (integer.length() % 4 == 0) {
-            loop = integer.length() / 4;
-        } else {
-            loop = integer.length() / 4 + 1;
-        }
-        String binary = "";
-        for (int i = 1; i <= loop; i++) {
-            if (i != loop) {
-                binary = integer.substring(integer.length() - i * 4,
-                        integer.length() - i * 4 + 4);
-            } else {
-                binary = mathhelper.appendZero(
-                        integer.substring(0, integer.length() - (i - 1) * 4),
-                        4, true);
-            }
-            integerSum.append(mathhelper.toHex(String.valueOf(mathhelper
-                    .binaryIntToDecimalis(binary))));
-        }
-        return integerSum.reverse().toString();
-    }
-    public static String appendZero(String str, int len, boolean flag) {
-        String zero = "0";
-        if (null == str || str.length() == 0) {
-            return "";
-        }
-        if (str.length() >= len) {
-            return str;
-        }
-        for (int i = str.length(); i < len; i++) {
-            if (flag) {
-                str = zero + str;
-            } else {
-                str += zero;
-            }
-        }
-        return str;
-    }
-    public static String toHex(String hex) {
-        String str = "";
-        switch(Integer.parseInt(hex)){
-            case 10 : str = "a"; break;
-            case 11 : str = "b"; break;
-            case 12 : str = "c"; break;
-            case 13 : str = "d"; break;
-            case 14 : str = "e"; break;
-            case 15 : str = "f"; break;
-            default : str = hex;
-        }
-        return str;
-    }
-    public static int binaryIntToDecimalis(String inteter) {
-        int inteterSum = 0;
-        for (int i = inteter.length(); i > 0; i--) {
-            int scale = 2;
-            if (inteter.charAt(-(i - inteter.length())) == '1') {
-                if (i != 1) {
-                    for (int j = 1; j < i - 1; j++) {
-                        scale *= 2;
-                    }
-                } else {
-                    scale = 1;
-                }
-            } else {
-                scale = 0;
-            }
-            inteterSum += scale;
-        }
-        return inteterSum;
-    }
-    public static String completeBin(String Bin){
-        ArrayList<String> complete0=new ArrayList<>();
-        if(Bin.length()<12)
-        {
-            for (int i=0;i<12-Bin.length();i++)
-                complete0.add("0");
-            Bin= TextUtils.join(",",complete0).replaceAll("\\D","")+Bin;
-        }
-        return Bin;
-    }
- /*   public static byte[] hexStringToBytes(String hexString) {
-        if (hexString == null || hexString.equals("")) {
-            return null;
-        }
-        hexString = hexString.toUpperCase();
-        int length = hexString.length() / 2;
-        char[] hexChars = hexString.toCharArray();
-        byte[] d = new byte[length];
-        for (int i = 0; i < length; i++) {
-            int pos = i * 2;
-            d[i] = (byte) (charToByte(hexChars[pos]) << 4 | charToByte(hexChars[pos + 1]));
-        }
-        return d;
-    }
- */
 }

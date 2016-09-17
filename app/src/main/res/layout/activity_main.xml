@@ -3,11 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/relativeLayout_main"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context="iotdf.iotgateway.MainActivity"
     android:background="@color/colore8f3f8">
 
@@ -43,13 +45,14 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="记住密码"
+        android:text="离线登录"
         android:textColor="@color/color81a8b8"
         android:id="@+id/checkBox"
         android:layout_marginTop="28dp"
         android:buttonTint="@color/color81a8b8"
         android:layout_below="@+id/ETpwd"
-        android:layout_alignStart="@+id/ETpwd" />
+        android:layout_alignStart="@+id/ETpwd"
+        android:checked="false"/>
 
     <Button
         android:layout_width="wrap_content"

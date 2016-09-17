@@ -29,7 +29,7 @@ public class DataService {
     //输出最近的信息
     public ArrayList HistoryData(String sensor,String arduinoNum){
         SQLiteDatabase sdb=dbHelper.getReadableDatabase();
-        String sql="select arduinoNum,"+sensor+",time from EnvData where arduinoNum='"+arduinoNum+"'and "+sensor+" is not null";
+        String sql="select arduinoNum,"+sensor+",time from EnvData where arduinoNum='"+arduinoNum+"'and "+sensor+" is not null order by time desc";
         Cursor cursor =sdb.rawQuery(sql,null);
         ArrayList<Map> HistoryData=new ArrayList<Map>();
         Map<String, Object> item;
