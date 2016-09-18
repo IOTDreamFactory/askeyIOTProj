@@ -7,13 +7,13 @@ import butterknife.ButterKnife.Finder;
 public class DevicePanel$$ViewInjector {
   public static void inject(Finder finder, final iotdf.iotgateway.DevicePanel target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131558627, "field 'toolbar'");
+    view = finder.findRequiredView(source, 2131558629, "field 'toolbar'");
     target.toolbar = (android.support.v7.widget.Toolbar) view;
     view = finder.findRequiredView(source, 2131558566, "field 'tabs'");
     target.tabs = (com.astuetz.PagerSlidingTabStrip) view;
     view = finder.findRequiredView(source, 2131558567, "field 'pager'");
     target.pager = (android.support.v4.view.ViewPager) view;
-    view = finder.findRequiredView(source, 2131558628, "method 'onClick'");
+    view = finder.findRequiredView(source, 2131558630, "method 'onClick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -22,7 +22,7 @@ public class DevicePanel$$ViewInjector {
           target.onClick(p0);
         }
       });
-    view = finder.findRequiredView(source, 2131558606, "method 'onClick'");
+    view = finder.findRequiredView(source, 2131558608, "method 'onClick'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(

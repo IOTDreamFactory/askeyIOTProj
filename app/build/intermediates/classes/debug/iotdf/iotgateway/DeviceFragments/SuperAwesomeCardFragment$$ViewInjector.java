@@ -7,7 +7,7 @@ import butterknife.ButterKnife.Finder;
 public class SuperAwesomeCardFragment$$ViewInjector {
   public static void inject(Finder finder, final iotdf.iotgateway.DeviceFragments.SuperAwesomeCardFragment target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131558598, "field 'textView'");
+    view = finder.findRequiredView(source, 2131558600, "field 'textView'");
     target.textView = (android.widget.TextView) view;
   }
 

@@ -101,7 +101,7 @@ public class Myservice extends Service {
                             public void run() {
                                 Intent i=new Intent();
                                 i.putExtra("sub",sub);
-                                i.setAction("example.hh123.iot.Myservice");
+                                i.setAction("iotdf.iotgateway.ConServ.Myservice");
                                 sendBroadcast(i);
                             }
                         }).start();
@@ -153,11 +153,12 @@ public class Myservice extends Service {
     @Override
     public int onStartCommand(final Intent intent, int flags, int startId) {
 //        host=intent.getStringExtra("host");
+        myTopic=intent.getStringExtra("Username");
         host="tcp://218.199.150.207:1883";
 //        pub =intent.getStringExtra("pub");
 //        测试
         DataService mDataService=new DataService(Myservice.this);
-        ArrayList<Map> HistoryList=mDataService.updateData("传感器1",mDataService.getLastUDTime(this));
+        ArrayList<Map> HistoryList=mDataService.updateData("传感节点1",mDataService.getLastUDTime(this));
         mDataService.setLastUDTime(this);
         pub=HistoryList.toString();
 //        pub= "test1";

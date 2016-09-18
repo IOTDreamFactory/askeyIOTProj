@@ -27,9 +27,15 @@ import com.nightonke.boommenu.Types.DimType;
 import com.nightonke.boommenu.Types.PlaceType;
 import com.nightonke.boommenu.Util;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import iotdf.iotgateway.ConSens.LocalService;
+import iotdf.iotgateway.ConServ.ServerRequest;
 import iotdf.iotgateway.DeviceFragments.statusFrag;
 import iotdf.iotgateway.RestComponents.MyBaseActivity;
 import iotdf.iotgateway.RestComponents.mathhelper;
@@ -46,6 +52,7 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
     private LocalService mBoundService;
     private String username;
     private String[] arduinoNum={"000","001","010","011","100","101","110","111"};
+    private String theUrl="http://218.199.150.207";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +68,7 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
         xRefreshView=(XRefreshView)findViewById(R.id.custom_view);
         xRefreshView.setAutoRefresh(true);
         xRefreshView.restoreLastRefreshTime(lastRefreshTime);
+        final MyExpandableListAdapter adapter = new MyExpandableListAdapter(ChooseDevice.this);
         xRefreshView.setXRefreshViewListener(new XRefreshView.XRefreshViewListener() {
 
             @Override
@@ -73,6 +81,8 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
                         lastRefreshTime = xRefreshView.getLastRefreshTime();
                     }
                 }, 1000);
+                adapter.notifyDataSetChanged();
+                listView.setAdapter(adapter);
 //                Intent intent=new Intent(ChooseDevice.this,ChooseDevice.class);
 //                startActivity(intent);
             }
@@ -94,7 +104,7 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
         });
 
         listView = (AnimatedExpandableListView) findViewById(R.id.expandlist);
-        final MyExpandableListAdapter adapter = new MyExpandableListAdapter(ChooseDevice.this);
+
 
         listView.setAdapter(adapter);
         listView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
@@ -148,6 +158,29 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
 
 
     }
+    private void byeMqtt(){
+        String  url="http://218.199.150.207:8080/exit";
+        List<NameValuePair> params;
+        params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("requesttype", "exit"));
+        ServerRequest sr = new ServerRequest();
+        JSONObject json = sr.getJSON(url,params);
+//        HttpPost httpPost = new HttpPost(url);
+//        List<NameValuePair> params = new ArrayList<NameValuePair>();
+//        params.add(new BasicNameValuePair("request-type", "exit"));
+//        try {
+//            httpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        byeMqtt();
+    }
+
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -174,6 +207,7 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
                     @Override
                     public void onClick(int buttonIndex){
                         if(buttonIndex==0){
+                            byeMqtt();
                             Intent intent0=new Intent(ChooseDevice.this,MainActivity.class);
                             startActivity(intent0);
                             finish();
@@ -203,21 +237,7 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
             mBoundService = null;
         }
     };
-/*    private String[] Colors = {
-            "#92aed3",
-            "#5587c0",
-            "#375069",
-            "#3e5a98",
-            "#3c3c3c",
-            "#81a8b8",
-            "#e8f3f8",
-            "#c2cbce",
-            "#dbe6ec"};
-    public int GetRandomColor() {
-        Random random = new Random();
-        int p = random.nextInt(Colors.length);
-        return Color.parseColor(Colors[p]);
-    }*/
+
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -238,12 +258,6 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
         public MyExpandableListAdapter(Context context){
             inflater=LayoutInflater.from(context);
         }
-        int[] logos = new int[]{
-                R.drawable.ico_temp,
-                R.drawable.ico_humi,
-                R.drawable.ico_water,
-                R.drawable.ico_bright,
-        };
         DataService mDataService=new DataService(ChooseDevice.this);
         private String[][] arms = new String[mDataService.PointNum().size()][5];
         private String[] armTypes=(String[])mDataService.PointNum().toArray(new String[mDataService.PointNum().size()]);
@@ -375,6 +389,7 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
             textView.setPadding(100, 0, 0, 0);
             return textView;
         }
+
 
 
     }

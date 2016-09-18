@@ -19,8 +19,9 @@
         android:textSize="18dp"
         android:textColor="@color/color81a8b8"
         android:layout_below="@+id/sign_back"
-        android:layout_alignLeft="@id/sign_back"
-        android:layout_marginTop="65dp" />
+        android:layout_marginTop="30dp"
+        android:layout_alignStart="@+id/sign_back"
+         />
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,8 +31,21 @@
         android:textSize="18dp"
         android:textColor="@color/color81a8b8"
         android:layout_below="@+id/TV_usr"
-        android:layout_alignLeft="@id/TV_usr"
-        android:layout_marginTop="65dp" />
+        android:layout_marginTop="30dp"
+        android:layout_alignStart="@id/sign_back"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TV_IOTkey"
+        android:text="IOTKEY"
+        android:textSize="18dp"
+        android:textColor="@color/color81a8b8"
+        android:layout_below="@+id/TV_pwd"
+        android:layout_marginTop="30dp"
+        android:layout_alignStart="@+id/sign_back"
+        />
 
     <EditText
         android:layout_width="420dp"
@@ -39,7 +53,6 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/ET_USR"
-        android:layout_marginLeft="90dp"
         android:textColor="@color/colore8f3f8"
         android:background="@drawable/roundedrectangle"
         android:enabled="true"
@@ -47,8 +60,10 @@
         android:textSize="25dp"
         android:textCursorDrawable="@null"
         android:layout_alignBaseline="@id/TV_usr"
-        android:layout_toEndOf="@+id/TV_usr"
-        android:layout_marginStart="26dp" />
+        android:layout_toEndOf="@id/TV_usr"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/sign_back"
+         />
 
     <EditText
         android:layout_width="420dp"
@@ -59,12 +74,23 @@
         android:background="@drawable/roundedrectangle"
         android:textColor="@color/colore8f3f8"
         android:password="true"
-        android:layout_alignBaseline="@id/TV_pwd"
-        android:layout_toEndOf="@id/TV_pwd"
-        android:layout_centerVertical="true"
         android:textSize="25dp"
         android:textCursorDrawable="@null"
-        android:layout_marginStart="26dp"  />
+        android:layout_alignBaseline="@id/TV_pwd"
+        android:layout_alignStart="@id/ET_USR"
+          />
+
+    <EditText
+        android:layout_width="420dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/ET_IOTkey"
+        android:background="@drawable/roundedrectangle"
+        android:textColor="@color/colore8f3f8"
+        android:textSize="25dp"
+        android:textCursorDrawable="@null"
+        android:layout_alignStart="@id/ET_USR"
+        android:layout_alignBaseline="@id/TV_IOTkey"/>
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -78,9 +104,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ImageButton_submit"
-        android:layout_below="@+id/TV_pwd"
+        android:layout_below="@+id/TV_IOTkey"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/submit" />
 
 </RelativeLayout>

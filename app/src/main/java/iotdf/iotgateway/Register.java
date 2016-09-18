@@ -30,6 +30,7 @@ public class Register extends AppCompatActivity {
     }
     private EditText UserName;
     private EditText PWD;
+    private EditText iotKey;
     private ImageButton Submit;
     private ImageButton Back;
     private Context context;
@@ -48,6 +49,7 @@ public class Register extends AppCompatActivity {
         Submit.setOnClickListener(ocl);
         Back.setOnClickListener(ocl);
         UserName.addTextChangedListener(new EditChangedListener());
+        iotKey.addTextChangedListener(new EditChangedListener2());
         PWD.addTextChangedListener(new EditChangedListener2());
         Submit.setEnabled(false);
     }
@@ -59,6 +61,7 @@ public class Register extends AppCompatActivity {
                     params = new ArrayList<NameValuePair>();
                     params.add(new BasicNameValuePair("username", UserName.getText().toString()));
                     params.add(new BasicNameValuePair("password", PWD.getText().toString()));
+                    params.add(new BasicNameValuePair("gateid",iotKey.getText().toString()));
                     ServerRequest sr = new ServerRequest();
                     JSONObject json = sr.getJSON(RegisterURL,params);
                     //JSONObject json = sr.getJSON("http://192.168.56.1:8080/register",params);
@@ -67,8 +70,23 @@ public class Register extends AppCompatActivity {
                         try{
                             String jsonstr = json.getString("response");
                             Toast.makeText(getApplication(),jsonstr,Toast.LENGTH_LONG).show();
-
                             Log.d("Hello", jsonstr);
+                            if(jsonstr.contains("success")){
+                                SharedPreferences preferences=getSharedPreferences("name", MODE_PRIVATE);
+                                SharedPreferences.Editor editor=preferences.edit();
+                                editor.putString("username",UserName.getText().toString());
+                                editor.commit();
+                                Intent=new Intent(Register.this,MainActivity.class);
+                                startActivity(Intent);
+                                finish();
+                                Toast.makeText(Register.this,"注册成功!", Toast.LENGTH_SHORT).show();
+                            }
+                            else if(jsonstr.contains("User already exist"))
+                                Toast.makeText(Register.this,"用户已经存在", Toast.LENGTH_SHORT).show();
+                            else if(jsonstr.contains("GetID not exist"))
+                                Toast.makeText(Register.this,"IOTKey不存在", Toast.LENGTH_SHORT).show();
+                            else
+                                Toast.makeText(Register.this,"注册失败", Toast.LENGTH_SHORT).show();
                         }catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -78,14 +96,6 @@ public class Register extends AppCompatActivity {
 //                    user.setUsername(UserName.getText().toString());
 //                    user.setPassword(PWD.getText().toString());
 //                    uService.register(user);
-                    SharedPreferences preferences=getSharedPreferences("name", MODE_PRIVATE);
-                    SharedPreferences.Editor editor=preferences.edit();
-                    editor.putString("username",UserName.getText().toString());
-                    editor.commit();
-                    Intent=new Intent(Register.this,MainActivity.class);
-                    startActivity(Intent);
-                    finish();
-                    Toast.makeText(Register.this,"注册成功!", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.sign_back:
                     Intent=new Intent(Register.this,MainActivity.class);

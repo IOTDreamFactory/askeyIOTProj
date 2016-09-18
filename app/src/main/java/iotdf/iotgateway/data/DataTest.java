@@ -75,7 +75,7 @@ public class DataTest extends AppCompatActivity implements View.OnClickListener 
                 break;
             case R.id.button_start:
                 Intent intent1 = new Intent();
-//                intent1.putExtra("Username",username);
+                intent1.putExtra("Username",username);
                 intent1.setClass(DataTest.this, Myservice.class);
                 startService(intent1);
 //                bindService();
