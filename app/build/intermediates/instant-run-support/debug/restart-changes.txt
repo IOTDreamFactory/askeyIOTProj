@@ -1,4 +1,0 @@
-CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\iotdf\iotgateway\DevicePanel$1.class
-CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\iotdf\iotgateway\DevicePanel$2.class
-CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\iotdf\iotgateway\DevicePanel$MyPagerAdapter.class
-CHANGED,E:\AndroidStudioProjects\IOTGateway\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\iotdf\iotgateway\DevicePanel.class

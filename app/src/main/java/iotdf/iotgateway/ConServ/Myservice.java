@@ -39,6 +39,7 @@ public class Myservice extends Service {
     private String myTopic = "test";
     private MqttConnectOptions options;
     private ScheduledExecutorService scheduler;
+    private DataService mDataService=new DataService(Myservice.this);
 
 //    @Override
 //    public void onStart(Intent intent, int startId) {
@@ -96,12 +97,13 @@ public class Myservice extends Service {
                             throws Exception {
                         //subscribe后得到的消息会执行到这里面
                         System.out.println("messageArrived----------");
+                        mDataService.setLastUDTime(Myservice.this);
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
                                 Intent i=new Intent();
                                 i.putExtra("sub",sub);
-                                i.setAction("example.hh123.iot.Myservice");
+                                i.setAction("iotdf.iotgateway.ConServ.Myservice");
                                 sendBroadcast(i);
                             }
                         }).start();
@@ -157,9 +159,7 @@ public class Myservice extends Service {
         host="tcp://218.199.150.207:1883";
 //        pub =intent.getStringExtra("pub");
 //        测试
-        DataService mDataService=new DataService(Myservice.this);
         ArrayList<Map> HistoryList=mDataService.updateData("传感节点1",mDataService.getLastUDTime(this));
-        mDataService.setLastUDTime(this);
         pub=HistoryList.toString();
 //        pub= "test1";
         //        测试

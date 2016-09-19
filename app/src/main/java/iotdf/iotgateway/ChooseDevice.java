@@ -36,6 +36,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import iotdf.iotgateway.ConSens.LocalService;
+import iotdf.iotgateway.ConServ.Myservice;
 import iotdf.iotgateway.ConServ.ServerRequest;
 import iotdf.iotgateway.DeviceFragments.statusFrag;
 import iotdf.iotgateway.RestComponents.MyBaseActivity;
@@ -55,7 +56,7 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
     private String[] arduinoNum={"000","001","010","011","100","101","110","111"};
     private String theUrl="http://218.199.150.207";
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_device);
         setContentView(R.layout.activity_choose_device);
@@ -63,6 +64,12 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
         bindService(intent,mConnection, Context.BIND_AUTO_CREATE);
         SharedPreferences preferences = getSharedPreferences("name", MODE_PRIVATE);
         username=preferences.getString("onLoginName",null);
+        if(username!="离线用户"){
+        Intent intent1 = new Intent();
+        intent1.putExtra("Username",username);
+        intent1.setClass(ChooseDevice.this, Myservice.class);
+        startService(intent1);
+        }
         boomMenuButton = (BoomMenuButton)findViewById(R.id.boom);
         B_DataTest=(Button)findViewById(R.id.Button_DataTest);
         B_DataTest.setOnClickListener(this);
@@ -84,6 +91,7 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
                 }, 1000);
                 adapter.notifyDataSetChanged();
                 listView.setAdapter(adapter);
+                listView.invalidate();
 //                Intent intent=new Intent(ChooseDevice.this,ChooseDevice.class);
 //                startActivity(intent);
             }
