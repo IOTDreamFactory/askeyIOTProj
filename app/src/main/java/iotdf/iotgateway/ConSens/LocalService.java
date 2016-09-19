@@ -15,6 +15,8 @@ import java.io.OutputStream;
 import java.math.BigInteger;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
 
 import iotdf.iotgateway.data.Data;
 import iotdf.iotgateway.data.DataService;
@@ -25,7 +27,9 @@ public class LocalService extends Service {
     OutputStream outputStream;//创建输出数据流
     ServerSocket serverSocket;//创建ServerSocket对象
     Socket clicksSocket;//连接通道，创建Socket对象
+    Map<String,Socket> SocketMap=new HashMap<>();
     String bufStr="";
+    String arduinoNum;
     int count=1;
     private NotificationManager mNM;
     String send="1234";
@@ -38,8 +42,13 @@ public class LocalService extends Service {
      * IPC.
      */
 
-    public void send(String send){
+    public void send(String send,String ArduninoNum){
         this.send=send;
+        try {
+            outputStream=SocketMap.get(ArduninoNum).getOutputStream();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         sendThread sendThread=new sendThread();
         sendThread.start();
     }
@@ -154,7 +163,7 @@ public class LocalService extends Service {
                     clicksSocket = serverSocket.accept();
                     inputstream = clicksSocket.getInputStream();
                     //启动接收线程
-                    outputStream=clicksSocket.getOutputStream();
+//                    outputStream=clicksSocket.getOutputStream();
                     Receive_Thread receive_Thread = new Receive_Thread();
 
                     receive_Thread.start();
@@ -201,6 +210,9 @@ public class LocalService extends Service {
                     System.out.print("\n");
                     String bb;
                     bb=binary(buf,2);
+                    arduinoNum=bb.substring(5,8);
+                    if(SocketMap.get(arduinoNum)==null)
+                    SocketMap.put(arduinoNum,clicksSocket);
                     System.out.print("Receive_Thread启动"+bb+"\n");
                     Message msg=new Message();
                     msg.obj=bb;

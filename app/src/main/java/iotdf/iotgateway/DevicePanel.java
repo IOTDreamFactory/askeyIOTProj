@@ -72,6 +72,7 @@ public class DevicePanel extends ActionBarActivity {
                         DatePickerDialog dialog = (DatePickerDialog)fragment.getDialog();
                         String date = dialog.getFormattedDate(SimpleDateFormat.getDateInstance());
                         Toast.makeText(DevicePanel.this, "Date is " + date, Toast.LENGTH_SHORT).show();
+                        System.out.println(dialog.getDate());
                         super.onPositiveActionClicked(fragment);
                     }
 

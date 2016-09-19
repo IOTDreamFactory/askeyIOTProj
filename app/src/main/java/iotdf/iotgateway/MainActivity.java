@@ -84,10 +84,12 @@ public class MainActivity extends MyBaseActivity implements View.OnClickListener
             case R.id.button_login:
                 if(checkBox.isChecked()){
                     Intent intent = new Intent(MainActivity.this, ChooseDevice.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Username", "离线用户");
-                    intent.putExtras(bundle);
+                    SharedPreferences preferences=getSharedPreferences("name", MODE_PRIVATE);
+                    SharedPreferences.Editor editor=preferences.edit();
+                    editor.putString("onLoginName","离线用户");
+                    editor.commit();
                     startActivity(intent);
+                    finish();
                 }
                 else {
                     params = new ArrayList<NameValuePair>();
@@ -101,8 +103,6 @@ public class MainActivity extends MyBaseActivity implements View.OnClickListener
                             System.out.println(jsonstr);
                             if (jsonstr != null) {
                                 Intent intent = new Intent(MainActivity.this, ChooseDevice.class);
-                                Bundle bundle = new Bundle();
-                                bundle.putString("Username", UserName.getText().toString());
                                 intent.putExtras(bundle);
                                 startActivity(intent);
                                 finish();
@@ -114,10 +114,11 @@ public class MainActivity extends MyBaseActivity implements View.OnClickListener
                             e.printStackTrace();
                         }
                         if(UserName.getText().toString()!=null){
-                        SharedPreferences preferences=getSharedPreferences("name", MODE_PRIVATE);
-                        SharedPreferences.Editor editor=preferences.edit();
-                        editor.putString("username",UserName.getText().toString());
-                        editor.commit();}
+                            SharedPreferences preferences=getSharedPreferences("name", MODE_PRIVATE);
+                            SharedPreferences.Editor editor=preferences.edit();
+                            editor.putString("username",UserName.getText().toString());
+                            editor.putString("onLoginName",UserName.getText().toString());
+                            editor.commit();}
                     }
 //                UserService uService=new UserService(MainActivity.this);
 //                boolean flag=uService.login(UserName.getText().toString(), PWD.getText().toString());

@@ -69,22 +69,23 @@ public class ControlPanel extends AppCompatActivity implements InputFrag.inputLi
             case R.id.back:
                 Intent intent=new Intent(ControlPanel.this,ChooseDevice.class);
                 startActivity(intent);
+                finish();
                 break;
             case R.id.imageButton:
-                mBoundService.send(mathhelper.str2HexStr("101010"+arduinoNum+"00000000000000010101011"));
+                mBoundService.send(mathhelper.str2HexStr("101010"+arduinoNum+"00000000000000010101011"),arduinoNum);
                 break;
             case R.id.imageButton2:
-                mBoundService.send(mathhelper.str2HexStr("101010"+arduinoNum+"00000000000000111101011"));
+                mBoundService.send(mathhelper.str2HexStr("101010"+arduinoNum+"00000000000000111101011"),arduinoNum);
                 break;
             case R.id.imageButton3:
-                mBoundService.send(mathhelper.str2HexStr("101010"+arduinoNum+"00000000000001111001011"));
+                mBoundService.send(mathhelper.str2HexStr("101010"+arduinoNum+"00000000000001111001011"),arduinoNum);
                 break;
             case R.id.imageButton4:
                 InputFrag dialog = new InputFrag();
                 dialog.show(getSupportFragmentManager(), "loginDialog");
                 break;
             case R.id.reboot:
-                mBoundService.send(mathhelper.str2HexStr("101010"+arduinoNum+"00000100000000000011011"));
+                mBoundService.send(mathhelper.str2HexStr("101010"+arduinoNum+"00000100000000000011011"),arduinoNum);
                 System.out.println("重启");
                 break;
         }
@@ -92,7 +93,7 @@ public class ControlPanel extends AppCompatActivity implements InputFrag.inputLi
 
     @Override
     public void onInputComplete(String inputValue) {
-        mBoundService.send(mathhelper.str2HexStr("101010"+arduinoNum+"0000000"+mathhelper.completeBin(Integer.toBinaryString(Integer.parseInt(inputValue)))+"1011"));
+        mBoundService.send(mathhelper.str2HexStr("101010"+arduinoNum+"0000000"+mathhelper.completeBin(Integer.toBinaryString(Integer.parseInt(inputValue)))+"1011"),arduinoNum);
     }
     void doBindService(){
         Intent intent=new Intent(ControlPanel.this,LocalService.class);
@@ -123,7 +124,12 @@ public class ControlPanel extends AppCompatActivity implements InputFrag.inputLi
 
     @Override
     public void onPositionChanged(Slider view, boolean fromUser, float oldPos, float newPos, int oldValue, int newValue) {
-        mBoundService.send(mathhelper.str2HexStr("101001"+arduinoNum+"0000000"+mathhelper.completeBin(Integer.toBinaryString(newValue))+"1011"));
+        int posInt;
+        if(newValue>oldValue)
+            posInt=100;
+        else
+            posInt=0;
+        mBoundService.send(mathhelper.str2HexStr("101001"+arduinoNum+"0000000"+mathhelper.completeBin(Integer.toBinaryString(posInt))+"1011"),arduinoNum);
         System.out.println(mathhelper.str2HexStr("101001"+arduinoNum+mathhelper.completeBin(Integer.toBinaryString(newValue))));
         System.out.println(newValue+"");
         System.out.println(mathhelper.completeBin(Integer.toBinaryString(newValue)));
@@ -134,13 +140,13 @@ public class ControlPanel extends AppCompatActivity implements InputFrag.inputLi
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean switchState) {
         if(switchState){
-            mBoundService.send(mathhelper.str2HexStr("101001"+arduinoNum+"01000000000000000001011"));
+            mBoundService.send(mathhelper.str2HexStr("101001"+arduinoNum+"01000000000000000001011"),arduinoNum);
             System.out.println("发送："+mathhelper.str2HexStr("101001"+arduinoNum+"01000000000000000001011"));
             Toast toast3=Toast.makeText(this,"电机反转", Toast.LENGTH_SHORT);
             toast3.show();
         }
         else{
-            mBoundService.send(mathhelper.str2HexStr("101001"+arduinoNum+"01000000000000000011011"));
+            mBoundService.send(mathhelper.str2HexStr("101001"+arduinoNum+"01000000000000000011011"),arduinoNum);
             System.out.println("发送："+mathhelper.str2HexStr("101001"+arduinoNum+"01000000000000000011011"));
             Toast toast3=Toast.makeText(this,"电机正转",Toast.LENGTH_SHORT);
             toast3.show();

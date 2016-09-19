@@ -101,7 +101,7 @@ public class Myservice extends Service {
                             public void run() {
                                 Intent i=new Intent();
                                 i.putExtra("sub",sub);
-                                i.setAction("iotdf.iotgateway.ConServ.Myservice");
+                                i.setAction("example.hh123.iot.Myservice");
                                 sendBroadcast(i);
                             }
                         }).start();

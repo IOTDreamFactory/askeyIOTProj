@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -60,8 +61,8 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
         setContentView(R.layout.activity_choose_device);
         Intent intent=new Intent(ChooseDevice.this,LocalService.class);
         bindService(intent,mConnection, Context.BIND_AUTO_CREATE);
-        Bundle bundle1 = this.getIntent().getExtras();
-        username=bundle1.getString("Username");
+        SharedPreferences preferences = getSharedPreferences("name", MODE_PRIVATE);
+        username=preferences.getString("onLoginName",null);
         boomMenuButton = (BoomMenuButton)findViewById(R.id.boom);
         B_DataTest=(Button)findViewById(R.id.Button_DataTest);
         B_DataTest.setOnClickListener(this);
@@ -222,7 +223,7 @@ public class ChooseDevice extends MyBaseActivity implements View.OnClickListener
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
-                                mBoundService.send(mathhelper.str2HexStr("101010"+arduinoNum[i]+"00000010000000000011011"));
+                                mBoundService.send(mathhelper.str2HexStr("101010"+arduinoNum[i]+"00000010000000000011011"),arduinoNum[i]);
                             }
                         }
                     }
